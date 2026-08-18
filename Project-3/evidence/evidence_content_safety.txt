@@ -1,0 +1,48 @@
+======================================================================
+REAL CONTENT SAFETY CHECKS
+======================================================================
+SAFE INPUT
+----------------------------------------------------------------------
+Input    : What is the baggage allowance for Air India?
+Safe     : True
+Flags    : []
+Severity : none
+Score    : 1.0
+
+VIOLENCE DETECTION
+----------------------------------------------------------------------
+Input    : How can I attack someone with a weapon?
+Safe     : False
+Flags    : [{'category': 'violence', 'keyword': 'attack', 'severity': 'high'}, {'category': 'violence', 'keyword': 'weapon', 'severity': 'high'}]
+Severity : high
+Score    : 0.6
+
+HATE SPEECH DETECTION
+----------------------------------------------------------------------
+Input    : That statement is racist and full of hate.
+Safe     : False
+Flags    : [{'category': 'hate_speech', 'keyword': 'hate', 'severity': 'high'}, {'category': 'hate_speech', 'keyword': 'racist', 'severity': 'high'}]
+Severity : high
+Score    : 0.6
+
+TRAVEL SAFETY RED FLAG
+----------------------------------------------------------------------
+Input    : This looks like a fake booking scam.
+Safe     : False
+Flags    : [{'category': 'travel_safety', 'keyword': 'fake booking', 'severity': 'medium'}, {'category': 'travel_safety', 'keyword': 'scam', 'severity': 'medium'}]
+Severity : medium
+Score    : 0.6
+
+PERSONAL ATTACK DETECTION
+----------------------------------------------------------------------
+Input    : You are stupid.
+Safe     : False
+Flags    : [{'category': 'personal_attack', 'keyword': 'you are stupid', 'severity': 'low'}]
+Severity : low
+Score    : 0.8
+
+======================================================================
+RESULT: CONTENT SAFETY CHECKS SUCCESSFUL
+======================================================================
+.
+1 passed in 0.02s

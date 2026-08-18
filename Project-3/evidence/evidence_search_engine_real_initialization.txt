@@ -1,0 +1,23 @@
+DEBUG: Azure Content Safety client initialized successfully.
+DEBUG: Initializing AzureChatOpenAI with endpoint https://bsp-project3-resource.openai.azure.com and deployment gpt-5.4-mini
+DEBUG: AzureChatOpenAI initialized successfully.
+DEBUG: Initializing AzureOpenAIEmbeddings with endpoint https://bsp-project3-resource.openai.azure.com and deployment text-embedding-3-small
+DEBUG: AzureOpenAIEmbeddings initialized successfully.
+DEBUG: Initializing vector store...
+DEBUG: Configured Azure Search endpoint: https://bspproject3.search.windows.net
+DEBUG: Configured Azure Search index: bspproject3index
+DEBUG: Initializing AzureSearch vector store...
+DEBUG: AzureSearch vector store initialized successfully.
+DEBUG: Vector store initialized successfully.
+
+======================================================================
+REAL TRAVEL SEARCH ENGINE INITIALIZATION
+======================================================================
+GovernanceGate              : INITIALIZED
+AzureChatOpenAI             : INITIALIZED
+AzureOpenAIEmbeddings       : INITIALIZED
+Azure AI Search VectorStore : INITIALIZED
+MLflow tracking URI         : CONFIGURED
+======================================================================
+.
+1 passed in 4.12s

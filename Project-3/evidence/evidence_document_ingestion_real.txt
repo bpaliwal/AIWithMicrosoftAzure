@@ -1,0 +1,56 @@
+======================================================================
+REAL DOCUMENT INGESTION - LOAD ALL DOCUMENTS
+======================================================================
+
+📂 Loading travel knowledge base...
+============================================================
+Found 9 PDF files in data/
+  ✓ Loaded: U.S. Department of Transportation - Aircraft Dissinection.pdf (5 pages)
+  ✓ Loaded: air-india-coc.pdf (28 pages)
+  ✓ Loaded: U.S. Department of Transportation - Implementation of the Consumer Credit Protection Act With Respect to Air Carriers and Foreign Air Carriers.pdf (2 pages)
+  ✓ Loaded: U.S. Department of Transportation - Air Consumer Privacy.pdf (3 pages)
+  ✓ Loaded: U.S. Department of Transportation - Aviation Industry Bankruptcy and Service Cessation.pdf (5 pages)
+  ✓ Loaded: U.S. Department of Transportation - Refunds and Other Consumer Protections.pdf (80 pages)
+  ✓ Loaded: U.S. Department of Transportation - Refunds for Airline Fare and Ancillary Service Fees.pdf (9 pages)
+  ✓ Loaded: ai-schedule-change-policy-updated.pdf (1 pages)
+  ✓ Loaded: air-india-general-booking-policies-oct2025.pdf (19 pages)
+Found 0 CSV files in data/
+============================================================
+✅ Total documents loaded: 152
+
+INGESTION RESULT
+----------------------------------------------------------------------
+Documents loaded : 152
+
+SAMPLE DOCUMENT METADATA
+----------------------------------------------------------------------
+Document 1
+Source   : U.S. Department of Transportation - Aircraft Dissinection.pdf
+Category : us_dot_regulations
+Characters: 1827
+
+Document 2
+Source   : U.S. Department of Transportation - Aircraft Dissinection.pdf
+Category : us_dot_regulations
+Characters: 530
+
+Document 3
+Source   : U.S. Department of Transportation - Aircraft Dissinection.pdf
+Category : us_dot_regulations
+Characters: 407
+
+Document 4
+Source   : U.S. Department of Transportation - Aircraft Dissinection.pdf
+Category : us_dot_regulations
+Characters: 671
+
+Document 5
+Source   : U.S. Department of Transportation - Aircraft Dissinection.pdf
+Category : us_dot_regulations
+Characters: 669
+
+======================================================================
+RESULT: REAL DOCUMENT INGESTION SUCCESSFUL
+======================================================================
+.
+1 passed in 7.14s

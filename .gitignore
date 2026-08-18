@@ -1,0 +1,30 @@
+# Environment / secrets
+.env
+.env.*
+!.env.sample
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.venv/
+venv/
+env/
+
+# macOS
+.DS_Store
+
+# MLflow runtime
+mlruns/
+mlflow.db
+
+# Generated artifacts
+artifacts/
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
