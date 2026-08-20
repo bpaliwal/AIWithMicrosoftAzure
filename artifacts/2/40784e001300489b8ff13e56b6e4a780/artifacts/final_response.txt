@@ -1,0 +1,4 @@
+No. According to Air India’s Void Policy, voiding is **not allowed** for tickets with **only domestic travel within India** if the **first flight departs within 7 days of ticket issuance**.
+
+Since your example is a domestic India-only ticket departing **5 days** after issuance, it would **not be eligible for voiding**.  
+**Source:** Air India General Booking Policies (Void Policy, effective 15 Oct 2025).

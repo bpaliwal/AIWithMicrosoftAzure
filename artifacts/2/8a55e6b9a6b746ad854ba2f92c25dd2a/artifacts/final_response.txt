@@ -1,0 +1,4 @@
+According to Air India’s waiver policy, a **domestic flight reschedule qualifies when it is rescheduled for more than 1 hour**.  
+
+For full refund handling, the policy also says the **entire booking must be cancelled** and the waiver should be inserted in the booking PNR/OSI field.  
+**Source:** *ai-schedule-change-policy-updated.pdf*

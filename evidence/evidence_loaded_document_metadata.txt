@@ -1,0 +1,136 @@
+Found 9 PDF files in data/
+  ✓ Loaded: U.S. Department of Transportation - Aircraft Dissinection.pdf (5 pages)
+  ✓ Loaded: air-india-coc.pdf (28 pages)
+  ✓ Loaded: U.S. Department of Transportation - Implementation of the Consumer Credit Protection Act With Respect to Air Carriers and Foreign Air Carriers.pdf (2 pages)
+  ✓ Loaded: U.S. Department of Transportation - Air Consumer Privacy.pdf (3 pages)
+  ✓ Loaded: U.S. Department of Transportation - Aviation Industry Bankruptcy and Service Cessation.pdf (5 pages)
+  ✓ Loaded: U.S. Department of Transportation - Refunds and Other Consumer Protections.pdf (80 pages)
+  ✓ Loaded: U.S. Department of Transportation - Refunds for Airline Fare and Ancillary Service Fees.pdf (9 pages)
+  ✓ Loaded: ai-schedule-change-policy-updated.pdf (1 pages)
+  ✓ Loaded: air-india-general-booking-policies-oct2025.pdf (19 pages)
+======================================================================
+LOADED PDF DOCUMENT METADATA
+======================================================================
+Total PDF documents/pages loaded: 152
+
+Document 1
+  source   : U.S. Department of Transportation - Aircraft Dissinection.pdf
+  file_type: pdf
+  category : us_dot_regulations
+  content  : 1827 characters
+
+Document 2
+  source   : U.S. Department of Transportation - Aircraft Dissinection.pdf
+  file_type: pdf
+  category : us_dot_regulations
+  content  : 530 characters
+
+Document 3
+  source   : U.S. Department of Transportation - Aircraft Dissinection.pdf
+  file_type: pdf
+  category : us_dot_regulations
+  content  : 407 characters
+
+Document 4
+  source   : U.S. Department of Transportation - Aircraft Dissinection.pdf
+  file_type: pdf
+  category : us_dot_regulations
+  content  : 671 characters
+
+Document 5
+  source   : U.S. Department of Transportation - Aircraft Dissinection.pdf
+  file_type: pdf
+  category : us_dot_regulations
+  content  : 669 characters
+
+Document 6
+  source   : air-india-coc.pdf
+  file_type: pdf
+  category : air_india_policies
+  content  : 3079 characters
+
+Document 7
+  source   : air-india-coc.pdf
+  file_type: pdf
+  category : air_india_policies
+  content  : 2684 characters
+
+Document 8
+  source   : air-india-coc.pdf
+  file_type: pdf
+  category : air_india_policies
+  content  : 2443 characters
+
+Document 9
+  source   : air-india-coc.pdf
+  file_type: pdf
+  category : air_india_policies
+  content  : 2615 characters
+
+Document 10
+  source   : air-india-coc.pdf
+  file_type: pdf
+  category : air_india_policies
+  content  : 2970 characters
+
+Document 11
+  source   : air-india-coc.pdf
+  file_type: pdf
+  category : air_india_policies
+  content  : 3069 characters
+
+Document 12
+  source   : air-india-coc.pdf
+  file_type: pdf
+  category : air_india_policies
+  content  : 2527 characters
+
+Document 13
+  source   : air-india-coc.pdf
+  file_type: pdf
+  category : air_india_policies
+  content  : 3069 characters
+
+Document 14
+  source   : air-india-coc.pdf
+  file_type: pdf
+  category : air_india_policies
+  content  : 599 characters
+
+Document 15
+  source   : air-india-coc.pdf
+  file_type: pdf
+  category : air_india_policies
+  content  : 3173 characters
+
+Document 16
+  source   : air-india-coc.pdf
+  file_type: pdf
+  category : air_india_policies
+  content  : 2713 characters
+
+Document 17
+  source   : air-india-coc.pdf
+  file_type: pdf
+  category : air_india_policies
+  content  : 712 characters
+
+Document 18
+  source   : air-india-coc.pdf
+  file_type: pdf
+  category : air_india_policies
+  content  : 2963 characters
+
+Document 19
+  source   : air-india-coc.pdf
+  file_type: pdf
+  category : air_india_policies
+  content  : 2589 characters
+
+Document 20
+  source   : air-india-coc.pdf
+  file_type: pdf
+  category : air_india_policies
+  content  : 2079 characters
+
+======================================================================

@@ -1,0 +1,12 @@
+For international flights, the available information says:
+
+- **Free baggage allowance:** Passengers may carry baggage **free of charge** as specified, and subject to the **conditions and limitations in the carrier’s regulations**.  
+  - **Source:** *air-india-coc.pdf* (Article 9.5)
+
+- **Excess baggage:** If your baggage exceeds the free allowance, you must pay **excess baggage charges** at the rate and in the manner prescribed in the carrier’s regulations.  
+  - **Source:** *air-india-coc.pdf* (Article 9.6)
+
+- **Checked baggage handling:** Checked baggage is normally carried on the **same aircraft as the passenger**, unless that is impracticable, in which case it may be carried on the **next available flight**.  
+  - **Source:** *air-india-coc.pdf* (Article 9.4.3)
+
+The knowledge base does **not** provide the exact international baggage allowance amount or weight limit, so I can’t confirm those details from the available information.

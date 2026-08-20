@@ -1,0 +1,10 @@
+Yes, **a ticket agent may retain certain service fees** when a flight is cancelled and a refund is due, **but only if the fee is for more than just processing payment for the flight the consumer found**. The fee must be:
+
+- **on a per-passenger basis**
+- **clearly and prominently disclosed** at the time of purchase
+- and, if applicable, its **non-refundable nature** must also be disclosed
+
+The Knowledge Base says ticket agents may retain this type of service charge even if the passenger did not travel because of an airline cancellation or significant change, as long as those disclosure requirements are met.  
+**Source:** U.S. Department of Transportation - *Refunds and Other Consumer Protections.pdf* (Sources 3 and 5)
+
+If the fee is simply a **booking fee for processing payment for a flight the consumer found**, the available information indicates airlines may not retain it when processing refunds, and the Knowledge Base does not clearly state that ticket agents may retain that specific fee in this situation.

@@ -1,0 +1,104 @@
+======================================================================
+CHECK MISSING DOT CONSUMER CREDIT PROTECTION DOCUMENT
+======================================================================
+DEBUG: Azure Content Safety client initialized successfully.
+DEBUG: Initializing AzureChatOpenAI with endpoint https://bsp-project3-resource.openai.azure.com and deployment gpt-5.4-mini
+DEBUG: AzureChatOpenAI initialized successfully.
+DEBUG: Initializing AzureOpenAIEmbeddings with endpoint https://bsp-project3-resource.openai.azure.com and deployment text-embedding-3-small
+DEBUG: AzureOpenAIEmbeddings initialized successfully.
+DEBUG: Initializing vector store...
+DEBUG: Configured Azure Search endpoint: https://bspproject3.search.windows.net
+DEBUG: Configured Azure Search index: bspproject3index
+DEBUG: Initializing AzureSearch vector store...
+DEBUG: AzureSearch vector store initialized successfully.
+DEBUG: Vector store initialized successfully.
+
+Query: Implementation of the Consumer Credit Protection Act
+DEBUG: Text Query: Implementation of the Consumer Credit Protection Act
+DEBUG: MLflow run started: search_by_text
+DEBUG: Performing similarity search with k=10
+DEBUG: Similarity search returned 10 documents.
+DEBUG: Retrieval latency: 1.026s
+DEBUG: Unique source documents: 2
+🏃 View run search_by_text at: http://127.0.0.1:5001/#/experiments/2/runs/bdf244b2a3b24942a898ef88def0837e
+🧪 View experiment at: http://127.0.0.1:5001/#/experiments/2
+DEBUG: MLflow run completed: search_by_text
+  Source: U.S. Department of Transportation - Implementation of the Consumer Credit Protection Act With Respect to Air Carriers and Foreign Air Carriers.pdf
+  Source: U.S. Department of Transportation - Implementation of the Consumer Credit Protection Act With Respect to Air Carriers and Foreign Air Carriers.pdf
+  Source: U.S. Department of Transportation - Implementation of the Consumer Credit Protection Act With Respect to Air Carriers and Foreign Air Carriers.pdf
+  Source: U.S. Department of Transportation - Implementation of the Consumer Credit Protection Act With Respect to Air Carriers and Foreign Air Carriers.pdf
+  Source: U.S. Department of Transportation - Refunds and Other Consumer Protections.pdf
+  Source: U.S. Department of Transportation - Refunds and Other Consumer Protections.pdf
+  Source: U.S. Department of Transportation - Refunds and Other Consumer Protections.pdf
+  Source: U.S. Department of Transportation - Refunds and Other Consumer Protections.pdf
+  Source: U.S. Department of Transportation - Refunds and Other Consumer Protections.pdf
+  Source: U.S. Department of Transportation - Refunds and Other Consumer Protections.pdf
+
+Query: Consumer Credit Protection Act air carriers foreign air carriers
+DEBUG: Text Query: Consumer Credit Protection Act air carriers foreign air carriers
+DEBUG: MLflow run started: search_by_text
+DEBUG: Performing similarity search with k=10
+DEBUG: Similarity search returned 10 documents.
+DEBUG: Retrieval latency: 0.561s
+DEBUG: Unique source documents: 2
+🏃 View run search_by_text at: http://127.0.0.1:5001/#/experiments/2/runs/2c11c3b4f95848b7acfd0faf7ccc8b7b
+🧪 View experiment at: http://127.0.0.1:5001/#/experiments/2
+DEBUG: MLflow run completed: search_by_text
+  Source: U.S. Department of Transportation - Implementation of the Consumer Credit Protection Act With Respect to Air Carriers and Foreign Air Carriers.pdf
+  Source: U.S. Department of Transportation - Implementation of the Consumer Credit Protection Act With Respect to Air Carriers and Foreign Air Carriers.pdf
+  Source: U.S. Department of Transportation - Implementation of the Consumer Credit Protection Act With Respect to Air Carriers and Foreign Air Carriers.pdf
+  Source: U.S. Department of Transportation - Implementation of the Consumer Credit Protection Act With Respect to Air Carriers and Foreign Air Carriers.pdf
+  Source: U.S. Department of Transportation - Implementation of the Consumer Credit Protection Act With Respect to Air Carriers and Foreign Air Carriers.pdf
+  Source: U.S. Department of Transportation - Refunds and Other Consumer Protections.pdf
+  Source: U.S. Department of Transportation - Refunds and Other Consumer Protections.pdf
+  Source: U.S. Department of Transportation - Refunds and Other Consumer Protections.pdf
+  Source: U.S. Department of Transportation - Refunds and Other Consumer Protections.pdf
+  Source: U.S. Department of Transportation - Refunds and Other Consumer Protections.pdf
+
+Query: credit protection act airline
+DEBUG: Text Query: credit protection act airline
+DEBUG: MLflow run started: search_by_text
+DEBUG: Performing similarity search with k=10
+DEBUG: Similarity search returned 10 documents.
+DEBUG: Retrieval latency: 0.436s
+DEBUG: Unique source documents: 3
+🏃 View run search_by_text at: http://127.0.0.1:5001/#/experiments/2/runs/7127873e361a45c48987e5ac95dbb567
+🧪 View experiment at: http://127.0.0.1:5001/#/experiments/2
+DEBUG: MLflow run completed: search_by_text
+  Source: U.S. Department of Transportation - Implementation of the Consumer Credit Protection Act With Respect to Air Carriers and Foreign Air Carriers.pdf
+  Source: U.S. Department of Transportation - Implementation of the Consumer Credit Protection Act With Respect to Air Carriers and Foreign Air Carriers.pdf
+  Source: U.S. Department of Transportation - Implementation of the Consumer Credit Protection Act With Respect to Air Carriers and Foreign Air Carriers.pdf
+  Source: U.S. Department of Transportation - Refunds and Other Consumer Protections.pdf
+  Source: U.S. Department of Transportation - Aviation Industry Bankruptcy and Service Cessation.pdf
+  Source: U.S. Department of Transportation - Refunds and Other Consumer Protections.pdf
+  Source: U.S. Department of Transportation - Refunds and Other Consumer Protections.pdf
+  Source: U.S. Department of Transportation - Refunds and Other Consumer Protections.pdf
+  Source: U.S. Department of Transportation - Refunds and Other Consumer Protections.pdf
+  Source: U.S. Department of Transportation - Refunds and Other Consumer Protections.pdf
+
+Query: air carriers foreign air carriers consumer credit
+DEBUG: Text Query: air carriers foreign air carriers consumer credit
+DEBUG: MLflow run started: search_by_text
+DEBUG: Performing similarity search with k=10
+DEBUG: Similarity search returned 10 documents.
+DEBUG: Retrieval latency: 0.771s
+DEBUG: Unique source documents: 3
+🏃 View run search_by_text at: http://127.0.0.1:5001/#/experiments/2/runs/798e2777d24b4284ae11b20091757e82
+🧪 View experiment at: http://127.0.0.1:5001/#/experiments/2
+DEBUG: MLflow run completed: search_by_text
+  Source: U.S. Department of Transportation - Implementation of the Consumer Credit Protection Act With Respect to Air Carriers and Foreign Air Carriers.pdf
+  Source: U.S. Department of Transportation - Implementation of the Consumer Credit Protection Act With Respect to Air Carriers and Foreign Air Carriers.pdf
+  Source: U.S. Department of Transportation - Refunds and Other Consumer Protections.pdf
+  Source: U.S. Department of Transportation - Refunds for Airline Fare and Ancillary Service Fees.pdf
+  Source: U.S. Department of Transportation - Refunds and Other Consumer Protections.pdf
+  Source: U.S. Department of Transportation - Refunds for Airline Fare and Ancillary Service Fees.pdf
+  Source: U.S. Department of Transportation - Refunds and Other Consumer Protections.pdf
+  Source: U.S. Department of Transportation - Refunds and Other Consumer Protections.pdf
+  Source: U.S. Department of Transportation - Implementation of the Consumer Credit Protection Act With Respect to Air Carriers and Foreign Air Carriers.pdf
+  Source: U.S. Department of Transportation - Refunds and Other Consumer Protections.pdf
+
+======================================================================
+RESULT: DOCUMENT FOUND IN AZURE AI SEARCH
+======================================================================
+.
+1 passed in 9.34s

@@ -1,0 +1,17 @@
+Here’s the cancellation information available in the Knowledge Base for Air India:
+
+- **24-hour look-in option:** For tickets booked on an Air India document, a passenger can **cancel or amend the ticket without additional charges within 24 hours of booking**, except for any **fare difference** and **government-imposed taxes/charges** on the revised flight. This facility is **not available if the flight departs in less than 7 days from the booking date**.  
+  - Source: **air-india-coc.pdf** (Article 6 – Reservations)
+
+- **After 24 hours:** Beyond the initial 24-hour booking period, the passenger must pay the **relevant cancellation fees** for amendment/cancellation.  
+  - Source: **air-india-coc.pdf**
+
+- **If the airline cancels or reschedules a flight:** Air India provides a waiver for certain cases, including:
+  1. **International flights rescheduled by more than 3 hours**, or if the passenger **misses onward connection** when rescheduling is less than 3 hours  
+  2. **Domestic flights within India rescheduled by more than 1 hour**  
+  3. **Air India flight cancelled**  
+  4. **Non-stop direct flight cancelled and passenger is offered an indirect flight via DEL or BOM**  
+  In these cases, ticket re-issuance allows **date/flight change charges to be waived**, and the passenger must be rebooked on the **first available flight**.  
+  - Source: **ai-schedule-change-policy-updated.pdf**
+
+If you want, I can also summarize the **difference between normal cancellation and airline-initiated cancellation/reschedule handling**.

@@ -1,0 +1,4 @@
+For an **international flight segment between the United States and a foreign point that is over 12 hours** in duration, DOT rules say a **mandatory baggage fee refund is due if the airline does not deliver the checked bag within 30 hours of the flight arriving at the gate**, and the passenger has filed a **Mishandled Baggage Report**.  
+
+So for a **14-hour international flight**, the delay threshold is **30 hours**.  
+(Source: U.S. Department of Transportation - Refunds and Other Consumer Protections.pdf, Sources 1 and 2)

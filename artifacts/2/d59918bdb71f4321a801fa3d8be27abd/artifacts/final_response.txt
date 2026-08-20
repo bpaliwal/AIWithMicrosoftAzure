@@ -1,0 +1,3 @@
+Under Air India’s GDS misuse policy, **“Churning”** refers to the **repeated booking of the same sector or overlapping sectors for the same passenger**, either **within one PNR or across multiple PNRs**, on the **same GDS or across different GDSs** by an agent.  
+
+**Source:** Air India General Booking Policies (Oct 2025), Page 13.

@@ -1,0 +1,10 @@
+data/ai-schedule-change-policy-updated.pdf
+data/air-india-coc.pdf
+data/air-india-general-booking-policies-oct2025.pdf
+data/golden_dataset.json
+data/U.S. Department of Transportation - Air Consumer Privacy.pdf
+data/U.S. Department of Transportation - Aircraft Dissinection.pdf
+data/U.S. Department of Transportation - Aviation Industry Bankruptcy and Service Cessation.pdf
+data/U.S. Department of Transportation - Implementation of the Consumer Credit Protection Act With Respect to Air Carriers and Foreign Air Carriers.pdf
+data/U.S. Department of Transportation - Refunds and Other Consumer Protections.pdf
+data/U.S. Department of Transportation - Refunds for Airline Fare and Ancillary Service Fees.pdf

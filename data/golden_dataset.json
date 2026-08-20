@@ -1,0 +1,137 @@
+[
+  {
+    "question": "What is the specific reimbursement percentage for an Air India passenger who is involuntarily downgraded on a domestic flight?",
+    "ground_truth": "The carrier shall reimburse the passenger 75% of the cost of the ticket, including applicable taxes.",
+    "contexts": [
+      "In the event of a Passenger's seat being involuntarily downgraded, in domestic carriage, to a class below that for which the Ticket was purchased, the Carrier shall reimburse the Passenger 75% of the cost of the Ticket, including applicable taxes."
+    ],
+    "source": "air-india-coc.pdf",
+    "category": "air_india_policies"
+  },
+  {
+    "question": "Does Air India allow a name change on a PNR once it has been created by a travel agent?",
+    "ground_truth": "No, changing the name field once a PNR is created is not permitted. Travel providers must contact Air India Reservation offices for assistance with misspellings (limited to a maximum of 3 characters) on a case-to-case basis.",
+    "contexts": [
+      "Changing of name field once PNR is created is not permitted. Do not perform Name modifications or cancel and replace Names in the PNRs through GDS channels or airline website once booking has been done. Contact Air India Reservation offices for assistance with misspellings... The maximum number of characters that could be changed is limited to three (3)."
+    ],
+    "source": "air-india-general-booking-policies-oct2025.pdf",
+    "category": "booking_policies"
+  },
+  {
+    "question": "According to Air India's waiver policy, what is the time threshold for a domestic flight reschedule to qualify for a full refund?",
+    "ground_truth": "A domestic flight (not connected with an international flight) must be rescheduled for more than 1 hour.",
+    "contexts": [
+      "2) Refunds : When AI flight is cancelled or re scheduled... (Domestic only - for more than one hour) i) Cancellation charge waived."
+    ],
+    "source": "ai-schedule-change-policy-updated.pdf",
+    "category": "air_india_policies"
+  },
+  {
+    "question": "What is the penalty for a 'Churn Violation' in Economy Class for Air India bookings after the allowed limit is exceeded?",
+    "ground_truth": "4 churns are permitted for Economy Class. Thereafter, an Agency Debit Memo (ADM) of US$10 would be charged for each additional churn done per passenger per segment.",
+    "contexts": [
+      "For bookings created in Economy Class 4 (four) churns will be permitted. Thereafter ADM of US$10 would be charged for each additional churn done per passenger per segment."
+    ],
+    "source": "air-india-general-booking-policies-oct2025.pdf",
+    "category": "booking_policies"
+  },
+  {
+    "question": "Is a ticket void allowed for domestic travel within India if the flight departs 5 days after ticket issuance?",
+    "ground_truth": "No. Void is NOT allowed for tickets with only Domestic travel within India, if the first flight departs within 7 days of ticket issuance.",
+    "contexts": [
+      "Void is NOT allowed for tickets with only Domestic travel within India, if the first flight departs within 7 days of ticket issuance."
+    ],
+    "source": "air-india-general-booking-policies-oct2025.pdf",
+    "category": "booking_policies"
+  },
+  {
+    "question": "Under the new DOT final rule, how many days does a carrier have to issue a refund for a ticket purchased with a credit card?",
+    "ground_truth": "Airlines and ticket agents must provide refunds for tickets purchased with credit cards within 7 business days of refunds becoming due.",
+    "contexts": [
+      "Prompt Ticket Refund means: (1) Airlines and ticket agents provide refunds for tickets purchased with credit cards within 7 business days of refunds becoming due."
+    ],
+    "source": "U.S. Department of Transportation - Refunds for Airline Fare and Ancillary Service Fees.pdf",
+    "category": "refund_policies"
+  },
+  {
+    "question": "How does the DOT define a 'significant change' for an international flight's arrival time?",
+    "ground_truth": "A significant change occurs if the passenger is scheduled to arrive at the destination airport six hours or more later than the original scheduled arrival time.",
+    "contexts": [
+      "Definition of Significant Change of Flight Itinerary: (2) the passenger is scheduled to arrive at the destination airport... six hours or more (for international itineraries) later than the original scheduled arrival time."
+    ],
+    "source": "U.S. Department of Transportation - Refunds and Other Consumer Protections.pdf",
+    "category": "us_dot_regulations"
+  },
+  {
+    "question": "If a passenger's bag is delayed on an international flight with a duration of 14 hours, what is the delay threshold for a mandatory baggage fee refund under DOT rules?",
+    "ground_truth": "For international itineraries where the flight duration is over 12 hours, a refund of baggage fee is due when the airline fails to deliver the checked bag within 30 hours of the consumer's flight arriving at the gate.",
+    "contexts": [
+      "(3) For international itineraries where the flight duration of the segment between the United States and a point in a foreign country is over 12 hours, a refund of baggage fee is due when the airline fails to deliver the checked bag within 30 hours of the consumer's flight arriving at the gate."
+    ],
+    "source": "U.S. Department of Transportation - Refunds for Airline Fare and Ancillary Service Fees.pdf",
+    "category": "refund_policies"
+  },
+  {
+    "question": "What are the mandatory characteristics of a travel voucher issued to a passenger who cannot fly due to a serious communicable disease?",
+    "ground_truth": "The voucher or credit must be transferrable and valid for at least 5 years from the date of issuance.",
+    "contexts": [
+      "carriers provide travel vouchers or credits that are transferrable and valid for at least 5 years from the date of issuance."
+    ],
+    "source": "U.S. Department of Transportation - Refunds and Other Consumer Protections.pdf",
+    "category": "us_dot_regulations"
+  },
+  {
+    "question": "Can a ticket agent retain a service fee if a flight is cancelled and the passenger is entitled to a refund?",
+    "ground_truth": "Yes, a ticket agent may retain the service fee charged when issuing the original ticket if the service provided is for more than processing payment and the non-refundable nature of the fee was clearly disclosed at the time of purchase.",
+    "contexts": [
+      "Amend 14 CFR part 399 to allow ticket agents to retain the service fee charged when issuing the original ticket if the service provided is for more than processing payment... and the non-refundable nature of the fee if this is the case, is clearly and prominently disclosed."
+    ],
+    "source": "U.S. Department of Transportation - Refunds and Other Consumer Protections.pdf",
+    "category": "us_dot_regulations"
+  },
+  {
+    "question": "Which countries require the disinsection of all in-bound flights using an aerosolized spray while passengers are on board?",
+    "ground_truth": "The countries include Ecuador (Galapagos and Interislands), Grenada, Guyana, India, Kiribati, Madagascar, Panama, Seychelles, Tanzania, Timor-Leste, Trinidad and Tobago, Uruguay, and Zimbabwe.",
+    "contexts": [
+      "Countries requiring the disinsection of all in-bound flights with an aerosolized spray while passengers are on board: Ecuador, Grenada, Guyana, India, Kiribati, Madagascar, Panama, Seychelles, Tanzania, Timor-Leste, Trinidad and Tobago, Uruguay, Zimbabwe."
+    ],
+    "source": "U.S. Department of Transportation - Aircraft Dissinection.pdf",
+    "category": "us_dot_regulations"
+  },
+  {
+    "question": "If an airline files for bankruptcy, what is the timeframe to file a claim with a credit card company under the Fair Credit Billing Act?",
+    "ground_truth": "Generally, the credit card issuer must receive this notice no later than 60 days after the date that you received the first monthly statement that listed the charge for the transportation.",
+    "contexts": [
+      "Generally, the credit card issuer must receive this notice no later than 60 days after the date that you received the first monthly statement that listed the charge for the transportation."
+    ],
+    "source": "U.S. Department of Transportation - Aviation Industry Bankruptcy and Service Cessation.pdf",
+    "category": "us_dot_regulations"
+  },
+  {
+    "question": "According to DOT privacy guidelines, is it considered a 'deceptive' practice for an airline to mislead a consumer regarding a material matter?",
+    "ground_truth": "Yes. A practice is deceptive if it is likely to mislead a consumer, acting reasonably under the circumstances, regarding a material matter.",
+    "contexts": [
+      "A practice is deceptive if it is likely to mislead a consumer, acting reasonably under the circumstances, regarding a material matter."
+    ],
+    "source": "U.S. Department of Transportation - Air Consumer Privacy.pdf",
+    "category": "privacy_policies"
+  },
+  {
+    "question": "What is the DOT's role in enforcing COPPA (Children's Online Privacy Protection Act)?",
+    "ground_truth": "DOT enforces COPPA with respect to airlines. DOT and FTC share jurisdiction over ticket agents with respect to COPPA.",
+    "contexts": [
+      "DOT enforces COPPA with respect to airlines. DOT and FTC share jurisdiction over ticket agents with respect to COPPA."
+    ],
+    "source": "U.S. Department of Transportation - Air Consumer Privacy.pdf",
+    "category": "privacy_policies"
+  },
+  {
+    "question": "Under Air India's GDS misuse policy, what is the definition of 'Churning'?",
+    "ground_truth": "Churning refers to the process of repeated bookings for same sector or overlapping sectors for same passenger through a PNR or across multiple PNRs on same GDS or across various GDS's by an agent.",
+    "contexts": [
+      "Churning refers to the process of repeated bookings for same sector or overlapping sectors for same passenger through a PNR or across multiple PNRs (Passenger Name Record) on same GDS or across various GDS's by an agent."
+    ],
+    "source": "air-india-general-booking-policies-oct2025.pdf",
+    "category": "booking_policies"
+  }
+]

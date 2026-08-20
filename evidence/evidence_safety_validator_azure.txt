@@ -1,0 +1,30 @@
+======================================================================
+REAL AZURE CONTENT SAFETY - SAFETY VALIDATOR
+======================================================================
+Input: What is the baggage allowance for Air India?
+
+DEBUG: Azure Content Safety client initialized successfully.
+AZURE CLIENT
+----------------------------------------------------------------------
+Azure Content Safety client : INITIALIZED
+
+SAFETY VALIDATION RESULT
+----------------------------------------------------------------------
+Safe                    : True
+Local check             : PASS
+Prompt injection check : PASS
+Azure Content Safety   : PASS
+Severity                : low
+Flags                   : []
+
+======================================================================
+RESULT: REAL AZURE CONTENT SAFETY INTEGRATION SUCCESSFUL
+======================================================================
+.
+=============================== warnings summary ===============================
+tests/test_safety_validator_azure_real.py:6
+  /Users/bharat/Desktop/Learning/AI for Businees with Microsoft Azure/Project3/MSGenAI_Project_3_Code-main/tests/test_safety_validator_azure_real.py:6: PytestUnknownMarkWarning: Unknown pytest.mark.integration - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html
+    @pytest.mark.integration
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1 passed, 1 warning in 0.58s

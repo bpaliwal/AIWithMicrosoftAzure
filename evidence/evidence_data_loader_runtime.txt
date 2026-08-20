@@ -1,0 +1,36 @@
+======================================================================
+DATA LOADER RUNTIME EVIDENCE
+======================================================================
+Found 9 PDF files in data/
+  ✓ Loaded: U.S. Department of Transportation - Aircraft Dissinection.pdf (5 pages)
+  ✓ Loaded: air-india-coc.pdf (28 pages)
+  ✓ Loaded: U.S. Department of Transportation - Implementation of the Consumer Credit Protection Act With Respect to Air Carriers and Foreign Air Carriers.pdf (2 pages)
+  ✓ Loaded: U.S. Department of Transportation - Air Consumer Privacy.pdf (3 pages)
+  ✓ Loaded: U.S. Department of Transportation - Aviation Industry Bankruptcy and Service Cessation.pdf (5 pages)
+  ✓ Loaded: U.S. Department of Transportation - Refunds and Other Consumer Protections.pdf (80 pages)
+  ✓ Loaded: U.S. Department of Transportation - Refunds for Airline Fare and Ancillary Service Fees.pdf (9 pages)
+  ✓ Loaded: ai-schedule-change-policy-updated.pdf (1 pages)
+  ✓ Loaded: air-india-general-booking-policies-oct2025.pdf (19 pages)
+
+RESULTS
+----------------------------------------------------------------------
+PDF pages/documents loaded : 152
+Unique PDF files loaded    : 9
+
+PDF FILES
+  U.S. Department of Transportation - Air Consumer Privacy.pdf
+  U.S. Department of Transportation - Aircraft Dissinection.pdf
+  U.S. Department of Transportation - Aviation Industry Bankruptcy and Service Cessation.pdf
+  U.S. Department of Transportation - Implementation of the Consumer Credit Protection Act With Respect to Air Carriers and Foreign Air Carriers.pdf
+  U.S. Department of Transportation - Refunds and Other Consumer Protections.pdf
+  U.S. Department of Transportation - Refunds for Airline Fare and Ancillary Service Fees.pdf
+  ai-schedule-change-policy-updated.pdf
+  air-india-coc.pdf
+  air-india-general-booking-policies-oct2025.pdf
+
+METADATA CHECK
+----------------------------------------------------------------------
+Sample source   : U.S. Department of Transportation - Aircraft Dissinection.pdf
+File type       : pdf
+Category        : us_dot_regulations
+======================================================================

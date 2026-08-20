@@ -1,0 +1,67 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.14.6, pytest-9.1.1, pluggy-1.6.0 -- /Users/bharat/Desktop/Learning/AI for Businees with Microsoft Azure/Project3/MSGenAI_Project_3_Code-main/.venv/bin/python3
+cachedir: .pytest_cache
+rootdir: /Users/bharat/Desktop/Learning/AI for Businees with Microsoft Azure/Project3/MSGenAI_Project_3_Code-main
+configfile: pytest.ini
+plugins: langsmith-0.11.0, asyncio-1.4.0, anyio-4.14.2
+asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collecting ... collected 1 item
+
+tests/test_search_engine_real_synthesis.py::test_synthesize_response_real ======================================================================
+REAL RAG RESPONSE SYNTHESIS EVIDENCE
+======================================================================
+Query: What is the baggage allowance for Air India?
+
+DEBUG: MLflow configured successfully.
+DEBUG: Tracking URI: azureml://eastus.api.azureml.ms/mlflow/v1.0/subscriptions/a0e7e508-3870-4e84-b3d3-d1a183ee5089/resourceGroups/marchcohortbpaliwal/providers/Microsoft.MachineLearningServices/workspaces/bspproj3ml
+DEBUG: Azure Content Safety client initialized successfully.
+DEBUG: Initializing AzureChatOpenAI with endpoint https://bsp-project3-resource.openai.azure.com and deployment gpt-5.4-mini
+DEBUG: AzureChatOpenAI initialized successfully.
+DEBUG: Initializing AzureOpenAIEmbeddings with endpoint https://bsp-project3-resource.openai.azure.com and deployment text-embedding-3-small
+DEBUG: AzureOpenAIEmbeddings initialized successfully.
+DEBUG: Initializing vector store...
+DEBUG: Configured Azure Search endpoint: https://bspproject3.search.windows.net
+DEBUG: Configured Azure Search index: bspproject3index
+DEBUG: Initializing AzureSearch vector store...
+DEBUG: AzureSearch vector store initialized successfully.
+DEBUG: Vector store initialized successfully.
+DEBUG: Text Query: What is the baggage allowance for Air India?
+DEBUG: MLflow run started: search_by_text
+DEBUG: Performing similarity search with k=5
+DEBUG: Similarity search returned 5 documents.
+DEBUG: Retrieval latency: 1.629s
+DEBUG: Unique source documents: 1
+🏃 View run search_by_text at: https://eastus.api.azureml.ms/mlflow/v2.0/subscriptions/a0e7e508-3870-4e84-b3d3-d1a183ee5089/resourceGroups/marchcohortbpaliwal/providers/Microsoft.MachineLearningServices/workspaces/bspproj3ml/#/experiments/a4d5040c-45ff-48a5-bb11-0c87edef00b5/runs/9ec99ed0-b8f6-4949-8af3-a991dfc76717
+🧪 View experiment at: https://eastus.api.azureml.ms/mlflow/v2.0/subscriptions/a0e7e508-3870-4e84-b3d3-d1a183ee5089/resourceGroups/marchcohortbpaliwal/providers/Microsoft.MachineLearningServices/workspaces/bspproj3ml/#/experiments/a4d5040c-45ff-48a5-bb11-0c87edef00b5
+DEBUG: MLflow run completed: search_by_text
+Retrieved documents: 5
+
+DEBUG: MLflow run started: synthesize_response
+DEBUG: Generating response using Azure OpenAI...
+DEBUG: LLM response generated successfully.
+DEBUG: LLM generation latency: 1.869s
+DEBUG: Token usage - input=1150, output=95, total=1245
+🏃 View run synthesize_response at: https://eastus.api.azureml.ms/mlflow/v2.0/subscriptions/a0e7e508-3870-4e84-b3d3-d1a183ee5089/resourceGroups/marchcohortbpaliwal/providers/Microsoft.MachineLearningServices/workspaces/bspproj3ml/#/experiments/a4d5040c-45ff-48a5-bb11-0c87edef00b5/runs/c1f9d565-f680-4b31-9dc3-996448426517
+🧪 View experiment at: https://eastus.api.azureml.ms/mlflow/v2.0/subscriptions/a0e7e508-3870-4e84-b3d3-d1a183ee5089/resourceGroups/marchcohortbpaliwal/providers/Microsoft.MachineLearningServices/workspaces/bspproj3ml/#/experiments/a4d5040c-45ff-48a5-bb11-0c87edef00b5
+DEBUG: MLflow run completed: synthesize_response
+GENERATED RESPONSE
+----------------------------------------------------------------------
+The available information is insufficient to state Air India’s baggage allowance.
+
+The knowledge base only includes a partial excerpt from Air India’s Conditions of Carriage, specifically the start of **Article 9 – Baggage** and a section on **items unacceptable as baggage**, but it does not provide the actual baggage allowance limits or free baggage entitlement.
+
+If you’d like, I can help look for any baggage-related details that are present in the provided document excerpt.
+
+GENERATION METRICS
+----------------------------------------------------------------------
+Generation latency : 1.869s
+Input tokens       : 1150
+Output tokens      : 95
+Total tokens       : 1245
+
+======================================================================
+RESULT: REAL RAG RESPONSE SYNTHESIS SUCCESSFUL
+======================================================================
+PASSED
+
+============================== 1 passed in 45.47s ==============================

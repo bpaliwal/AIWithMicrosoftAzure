@@ -1,0 +1,3 @@
+For a **Churn Violation** in **Economy Class**, Air India allows **4 churns**. After that, the penalty is **US$10 for each additional churn per passenger per segment**.
+
+**Source:** Air India General Booking Policies, Page 13 (Global Distribution Systems (GDS) Misuse Policy)

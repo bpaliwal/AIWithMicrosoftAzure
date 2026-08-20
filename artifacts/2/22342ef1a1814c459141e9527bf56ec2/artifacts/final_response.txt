@@ -1,0 +1,15 @@
+For international flights, the available information says:
+
+- **Free baggage allowance:** Passengers may carry baggage **free of charge** as specified, and subject to the **conditions and limitations in the carrier’s regulations**.  
+  - **Source:** *air-india-coc.pdf* (Section 9.5)
+
+- **Excess baggage:** If you carry baggage **above the free allowance**, you must pay **excess baggage charges** at the rate and in the manner prescribed in the carrier’s regulations.  
+  - **Source:** *air-india-coc.pdf* (Section 9.6)
+
+- **Checked baggage handling:** Checked baggage is normally carried on the **same aircraft as the passenger**, unless that is impracticable, in which case it may be carried on the **next available flight**.  
+  - **Source:** *air-india-coc.pdf* (Section 9.4.3)
+
+- **Items not allowed in baggage:** Certain items are not permitted, including items that are unsuitable due to weight/size/character, live animals except as provided, firearms and ammunition except for hunting/sporting purposes under specific conditions, and valuables such as money, jewelry, passports, and other identification documents.  
+  - **Source:** *air-india-coc.pdf* (Sections 9.1.1, 9.1.2, 9.1.3)
+
+The knowledge base does **not** provide a specific international baggage weight or piece allowance amount, so I can’t state exact limits from the available information.

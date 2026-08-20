@@ -1,0 +1,78 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.14.6, pytest-9.1.1, pluggy-1.6.0 -- /Users/bharat/Desktop/Learning/AI for Businees with Microsoft Azure/Project3/MSGenAI_Project_3_Code-main/.venv/bin/python3
+cachedir: .pytest_cache
+rootdir: /Users/bharat/Desktop/Learning/AI for Businees with Microsoft Azure/Project3/MSGenAI_Project_3_Code-main
+plugins: langsmith-0.11.0, asyncio-1.4.0, anyio-4.14.2
+asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collecting ... collected 1 item
+
+tests/test_search_engine_real_search.py::test_real_search_by_text ======================================================================
+REAL AZURE AI SEARCH - search_by_text() EVIDENCE
+======================================================================
+Query: What is the baggage allowance for Air India?
+
+DEBUG: MLflow configured successfully.
+DEBUG: Tracking URI: azureml://eastus.api.azureml.ms/mlflow/v1.0/subscriptions/a0e7e508-3870-4e84-b3d3-d1a183ee5089/resourceGroups/marchcohortbpaliwal/providers/Microsoft.MachineLearningServices/workspaces/bspproj3ml
+DEBUG: Azure Content Safety client initialized successfully.
+DEBUG: Initializing AzureChatOpenAI with endpoint https://bsp-project3-resource.openai.azure.com and deployment gpt-5.4-mini
+DEBUG: AzureChatOpenAI initialized successfully.
+DEBUG: Initializing AzureOpenAIEmbeddings with endpoint https://bsp-project3-resource.openai.azure.com and deployment text-embedding-3-small
+DEBUG: AzureOpenAIEmbeddings initialized successfully.
+DEBUG: Initializing vector store...
+DEBUG: Configured Azure Search endpoint: https://bspproject3.search.windows.net
+DEBUG: Configured Azure Search index: bspproject3index
+DEBUG: Initializing AzureSearch vector store...
+DEBUG: AzureSearch vector store initialized successfully.
+DEBUG: Vector store initialized successfully.
+DEBUG: Text Query: What is the baggage allowance for Air India?
+DEBUG: MLflow run started: search_by_text
+DEBUG: Performing similarity search with k=5
+DEBUG: Similarity search returned 5 documents.
+DEBUG: Retrieval latency: 1.356s
+DEBUG: Unique source documents: 1
+🏃 View run search_by_text at: https://eastus.api.azureml.ms/mlflow/v2.0/subscriptions/a0e7e508-3870-4e84-b3d3-d1a183ee5089/resourceGroups/marchcohortbpaliwal/providers/Microsoft.MachineLearningServices/workspaces/bspproj3ml/#/experiments/a4d5040c-45ff-48a5-bb11-0c87edef00b5/runs/32dbf2f1-1bf4-48f7-b040-e7f546f278a4
+🧪 View experiment at: https://eastus.api.azureml.ms/mlflow/v2.0/subscriptions/a0e7e508-3870-4e84-b3d3-d1a183ee5089/resourceGroups/marchcohortbpaliwal/providers/Microsoft.MachineLearningServices/workspaces/bspproj3ml/#/experiments/a4d5040c-45ff-48a5-bb11-0c87edef00b5
+DEBUG: MLflow run completed: search_by_text
+Returned query: What is the baggage allowance for Air India?
+Documents retrieved: 5
+
+RETRIEVED DOCUMENTS
+----------------------------------------------------------------------
+
+Document 1
+Source   : air-india-coc.pdf
+Category : air_india_policies
+Preview  : 1      AIR INDIA LIMITED                        CONDITIONS OF CARRIAGE FOR PASSENGERS AND BAGGAGE    Table of Contents  Article 1 - DEFINITIONS............................................................................................................................................. 2  Article 2 - APPLICABILITY ........................................................................................................................................ 3  Article 3 - TICKETS ..........................
+
+Document 2
+Source   : air-india-coc.pdf
+Category : air_india_policies
+Preview  : 1      AIR INDIA LIMITED                        CONDITIONS OF CARRIAGE FOR PASSENGERS AND BAGGAGE    Table of Contents  Article 1 - DEFINITIONS............................................................................................................................................. 2  Article 2 - APPLICABILITY ........................................................................................................................................ 3  Article 3 - TICKETS ..........................
+
+Document 3
+Source   : air-india-coc.pdf
+Category : air_india_policies
+Preview  : negligence or other wrongful act or omission of that Passenger.    16.5. All the compensation shall be subject to the  Airline Designator Code of Air India appearing in the carrier  box of the Ticket for that flight or flight segment, and limits on compensation as provided under these Conditions  of Carriage.    Article 17 - LIMITS OF COMPENSATION  17.1 International Carriage hereunder is subject to the rules and limitations relating to liability established  by the Convention as embodied in the
+
+Document 4
+Source   : air-india-coc.pdf
+Category : air_india_policies
+Preview  : amount not exceeding 200% of booked one-way base fare, i.e., base fare inclusive of fuel charges, subject  to a maximum limit of Rs.10,000;    B. Scheduled departure of alternate flight vis -à-vis initial reservation beyond 24 hours, compensation  amount not exceeding 400% of booked one-way base fare, i.e., base fare inclusive of fuel charges, subject  to a maximum limit of Rs.20,000;    C. Where the Passenger refuses alternate flight, full refund of Ticket plus 400% of booked one-way base  fare
+
+Document 5
+Source   : air-india-coc.pdf
+Category : air_india_policies
+Preview  : amount not exceeding 200% of booked one-way base fare, i.e., base fare inclusive of fuel charges, subject  to a maximum limit of Rs.10,000;    B. Scheduled departure of alternate flight vis -à-vis initial reservation beyond 24 hours, compensation  amount not exceeding 400% of booked one-way base fare, i.e., base fare inclusive of fuel charges, subject  to a maximum limit of Rs.20,000;    C. Where the Passenger refuses alternate flight, full refund of Ticket plus 400% of booked one-way base  fare
+
+======================================================================
+RESULT: REAL SIMILARITY SEARCH SUCCESSFUL
+======================================================================
+PASSED
+
+=============================== warnings summary ===============================
+tests/test_search_engine_real_search.py:6
+  /Users/bharat/Desktop/Learning/AI for Businees with Microsoft Azure/Project3/MSGenAI_Project_3_Code-main/tests/test_search_engine_real_search.py:6: PytestUnknownMarkWarning: Unknown pytest.mark.integration - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html
+    @pytest.mark.integration
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================== 1 passed, 1 warning in 25.51s =========================
