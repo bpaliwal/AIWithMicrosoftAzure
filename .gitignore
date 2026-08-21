@@ -42,3 +42,15 @@ mlruns/
 *.egg-info/
 dist/
 build/
+
+# Local MLflow
+mlflow.db
+mlruns/
+
+# Local environment
+.env
+.venv/
+
+# Python
+__pycache__/
+*.pyc
