@@ -1,0 +1,20 @@
+IMAGE          CREATED        CREATED BY                                      SIZE      COMMENT
+a62c203a708b   18 hours ago   CMD ["streamlit" "run" "src/app.py" "--serve…   0B        buildkit.dockerfile.v0
+<missing>      18 hours ago   EXPOSE [8501/tcp]                               0B        buildkit.dockerfile.v0
+<missing>      18 hours ago   COPY guardrails ./guardrails # buildkit         41kB      buildkit.dockerfile.v0
+<missing>      18 hours ago   COPY governance ./governance # buildkit         61.4kB    buildkit.dockerfile.v0
+<missing>      18 hours ago   COPY src ./src # buildkit                       332kB     buildkit.dockerfile.v0
+<missing>      33 hours ago   RUN /bin/sh -c pip install --no-cache-dir -r…   1.54GB    buildkit.dockerfile.v0
+<missing>      33 hours ago   RUN /bin/sh -c apt-get update     && apt-get…   309MB     buildkit.dockerfile.v0
+<missing>      33 hours ago   COPY requirements.txt . # buildkit              12.3kB    buildkit.dockerfile.v0
+<missing>      33 hours ago   ENV PYTHONUNBUFFERED=1                          0B        buildkit.dockerfile.v0
+<missing>      33 hours ago   ENV PYTHONDONTWRITEBYTECODE=1                   0B        buildkit.dockerfile.v0
+<missing>      41 hours ago   WORKDIR /app                                    8.19kB    buildkit.dockerfile.v0
+<missing>      2 weeks ago    CMD ["python3"]                                 0B        buildkit.dockerfile.v0
+<missing>      2 weeks ago    RUN /bin/sh -c set -eux;  for src in idle3 p…   16.4kB    buildkit.dockerfile.v0
+<missing>      2 weeks ago    RUN /bin/sh -c set -eux;   savedAptMark="$(a…   45.2MB    buildkit.dockerfile.v0
+<missing>      2 weeks ago    ENV PYTHON_SHA256=3b48dac8fb59f62eaa67ac83c1…   0B        buildkit.dockerfile.v0
+<missing>      2 weeks ago    ENV PYTHON_VERSION=3.14.7                       0B        buildkit.dockerfile.v0
+<missing>      2 weeks ago    RUN /bin/sh -c set -eux;  apt-get update;  a…   4.99MB    buildkit.dockerfile.v0
+<missing>      2 weeks ago    ENV PATH=/usr/local/bin:/usr/local/sbin:/usr…   0B        buildkit.dockerfile.v0
+<missing>      2 weeks ago    # debian.sh --arch 'arm64' out/ 'trixie' '@1…   109MB     debuerreotype 0.17

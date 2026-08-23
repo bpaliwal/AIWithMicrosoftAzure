@@ -10,6 +10,9 @@ COPY requirements.txt .
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
        build-essential \
+       curl \
+       ca-certificates \
+    && curl -sL https://aka.ms/InstallAzureCLIDeb | bash \
     && rm -rf /var/lib/apt/lists/*
 
 

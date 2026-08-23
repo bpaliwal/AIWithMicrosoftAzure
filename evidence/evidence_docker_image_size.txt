@@ -1,0 +1,2 @@
+IMAGE                  ID             DISK USAGE   CONTENT SIZE   EXTRA
+wandernest-ai:latest   a62c203a708b        2.6GB          590MB   U    
