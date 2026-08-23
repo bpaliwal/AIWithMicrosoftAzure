@@ -2,6 +2,7 @@
 Ragas Evaluation for Travel Chatbot
 
 RUBRIC: Evaluation Framework (RAGAS) (8 marks total)
+
 - RAGAS evaluation implemented (3 marks)
 - Golden dataset created (2 marks)
 - All four metrics computed (2 marks)
@@ -18,6 +19,12 @@ This implementation uses the Ragas 0.4 Collections API:
 The project uses Azure OpenAI for both:
     - Ragas evaluation LLM
     - Ragas evaluation embeddings
+
+MLflow:
+    - Evaluation runs are tracked in Azure ML / MLflow.
+    - Aggregate RAGAS metrics are logged as MLflow metrics.
+    - Evaluation configuration is logged as MLflow parameters.
+    - Detailed evaluation results are logged as MLflow artifacts.
 """
 
 import asyncio
@@ -29,23 +36,12 @@ from pathlib import Path
 from typing import Dict, List, Tuple
 
 import pandas as pd
+import mlflow
 
 
 # ---------------------------------------------------------------------------
 # RAGAS 0.4.3 compatibility shim
 # ---------------------------------------------------------------------------
-#
-# Ragas 0.4.3 may import the legacy VertexAI module path during package
-# initialization:
-#
-#     langchain_community.chat_models.vertexai
-#
-# Newer langchain-community versions may no longer provide that module.
-#
-# This project does not use VertexAI. The stub below allows Ragas to import
-# without requiring the optional VertexAI integration.
-# ---------------------------------------------------------------------------
-
 try:
     import importlib.util
 
@@ -60,7 +56,6 @@ try:
 
         class ChatVertexAI:
             """Compatibility placeholder for Ragas 0.4.3."""
-
             pass
 
         vertexai_stub.ChatVertexAI = ChatVertexAI
@@ -76,12 +71,9 @@ except Exception:
 # ---------------------------------------------------------------------------
 # Ragas imports
 # ---------------------------------------------------------------------------
-
 from openai import AsyncAzureOpenAI
-
 from ragas.llms import llm_factory
 from ragas.embeddings.base import embedding_factory
-
 from ragas.metrics.collections import (
     AnswerRelevancy,
     ContextPrecision,
@@ -96,7 +88,6 @@ from src.search_engine import TravelSearchEngine
 # ---------------------------------------------------------------------------
 # Logging
 # ---------------------------------------------------------------------------
-
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("evaluation")
 
@@ -104,11 +95,11 @@ logger = logging.getLogger("evaluation")
 # ===========================================================================
 # TravelChatbotEvaluator
 # ===========================================================================
-
 class TravelChatbotEvaluator:
     """Evaluates Travel Chatbot using Ragas 0.4.3."""
 
     def __init__(self):
+
         # ---------------------------------------------------------------
         # Initialize search engine
         # ---------------------------------------------------------------
@@ -137,10 +128,68 @@ class TravelChatbotEvaluator:
         # ---------------------------------------------------------------
         self.metrics = {}
 
+        # ---------------------------------------------------------------
+        # MLflow
+        # ---------------------------------------------------------------
+        self.mlflow_run = None
+
+
+    # ===================================================================
+    # MLflow initialization
+    # ===================================================================
+    def _initialize_mlflow(self):
+        """
+        Initialize MLflow tracking using the project's Azure ML
+        MLflow configuration.
+
+        The tracking URI and experiment name come from Config.
+        Authentication is handled by the Azure environment / credential
+        configuration already established for the container.
+        """
+
+        tracking_uri = Config.MLFLOW_TRACKING_URI
+        experiment_name = Config.MLFLOW_EXPERIMENT_NAME
+
+        if not tracking_uri:
+            raise EnvironmentError(
+                "MLFLOW_TRACKING_URI is not configured."
+            )
+
+        if not experiment_name:
+            raise EnvironmentError(
+                "MLFLOW_EXPERIMENT_NAME is not configured."
+            )
+
+        logger.info(
+            "MLflow tracking URI: %s",
+            tracking_uri,
+        )
+
+        logger.info(
+            "MLflow experiment: %s",
+            experiment_name,
+        )
+
+        mlflow.set_tracking_uri(tracking_uri)
+
+        experiment = mlflow.set_experiment(
+            experiment_name
+        )
+
+        logger.info(
+            "MLflow experiment initialized: %s",
+            experiment_name,
+        )
+
+        logger.info(
+            "MLflow experiment ID: %s",
+            experiment.experiment_id,
+        )
+
+
     # ===================================================================
     # Ragas model initialization
     # ===================================================================
-
     def _initialize_ragas_models(self):
         """
         Initialize Ragas 0.4.3 evaluator models using Azure OpenAI.
@@ -159,12 +208,13 @@ class TravelChatbotEvaluator:
         with the Azure credentials already defined in Config.
         """
 
-        logger.info("Initializing Ragas evaluator models...")
+        logger.info(
+            "Initializing Ragas evaluator models..."
+        )
 
         # ---------------------------------------------------------------
         # Validate required Azure configuration
         # ---------------------------------------------------------------
-
         required_config = {
             "AZURE_OPENAI_API_KEY": Config.AZURE_OPENAI_API_KEY,
             "AZURE_OPENAI_ENDPOINT": Config.AZURE_OPENAI_ENDPOINT,
@@ -207,17 +257,6 @@ class TravelChatbotEvaluator:
         # ---------------------------------------------------------------
         # Create Azure OpenAI client
         # ---------------------------------------------------------------
-        #
-        # This is the critical fix.
-        #
-        # DO NOT use:
-        #
-        #     AsyncOpenAI()
-        #
-        # because that looks for OPENAI_API_KEY.
-        #
-        # ---------------------------------------------------------------
-
         azure_client = AsyncAzureOpenAI(
             api_key=Config.AZURE_OPENAI_API_KEY,
             azure_endpoint=Config.AZURE_OPENAI_ENDPOINT,
@@ -232,33 +271,18 @@ class TravelChatbotEvaluator:
         # ---------------------------------------------------------------
         # Ragas LLM
         # ---------------------------------------------------------------
-
         self.ragas_llm = llm_factory(
             model=Config.AZURE_OPENAI_DEPLOYMENT_NAME,
             provider="openai",
             client=azure_client,
         )
 
-        # -------------------------------------------------------------------
+        # ---------------------------------------------------------------
         # GPT-5.x compatibility for Ragas 0.4.x
-        # -------------------------------------------------------------------
-        # Ragas' InstructorLLM parameter mapper incorrectly treats versions
-        # such as "gpt-5.4-mini" as non-reasoning models because it attempts
-        # int("5.4"). Azure GPT-5.x requires:
-        #
-        #     max_completion_tokens
-        #
-        # instead of:
-        #
-        #     max_tokens
-        #
-        # and only supports temperature=1.0.
-        #
-        # Short-circuit Ragas' mapper for our Azure GPT-5.x deployment rather
-        # than changing the actual Azure/OpenAI model.
-        # -------------------------------------------------------------------
-
-        _original_map_provider_params = self.ragas_llm._map_provider_params
+        # ---------------------------------------------------------------
+        _original_map_provider_params = (
+            self.ragas_llm._map_provider_params
+        )
 
         def _azure_gpt5_map_provider_params():
             params = _original_map_provider_params()
@@ -267,34 +291,34 @@ class TravelChatbotEvaluator:
 
             if model_name.startswith("gpt-5"):
                 if "max_tokens" in params:
-                    params["max_completion_tokens"] = params.pop("max_tokens")
+                    params["max_completion_tokens"] = params.pop(
+                        "max_tokens"
+                    )
 
                 params["temperature"] = 1.0
                 params.pop("top_p", None)
 
             return params
 
-        self.ragas_llm._map_provider_params = _azure_gpt5_map_provider_params
+        self.ragas_llm._map_provider_params = (
+            _azure_gpt5_map_provider_params
+        )
 
         logger.info(
-            "Ragas LLM initialized successfully with GPT-5.x parameter compatibility."
+            "Ragas LLM initialized successfully with "
+            "GPT-5.x parameter compatibility."
         )
 
         # ---------------------------------------------------------------
         # Ragas embeddings
         # ---------------------------------------------------------------
-        #
-        # Use the SAME Azure client but specify the embedding deployment.
-        #
-        # Ragas 0.4.x embedding_factory() accepts the OpenAI-compatible
-        # client and model name.
-        # ---------------------------------------------------------------
-
         embedding_client = AsyncAzureOpenAI(
             api_key=Config.AZURE_OPENAI_API_KEY,
             azure_endpoint=Config.AZURE_OPENAI_ENDPOINT,
             api_version=Config.AZURE_OPENAI_API_VERSION,
-            azure_deployment=Config.AZURE_OPENAI_EMBEDDING_DEPLOYMENT,
+            azure_deployment=(
+                Config.AZURE_OPENAI_EMBEDDING_DEPLOYMENT
+            ),
         )
 
         self.ragas_embeddings = embedding_factory(
@@ -302,7 +326,7 @@ class TravelChatbotEvaluator:
             model=Config.AZURE_OPENAI_EMBEDDING_DEPLOYMENT,
             client=embedding_client,
         )
-        
+
         logger.info(
             "Ragas embeddings initialized successfully."
         )
@@ -311,10 +335,10 @@ class TravelChatbotEvaluator:
             "Ragas evaluator models initialized successfully."
         )
 
+
     # ===================================================================
     # Golden dataset
     # ===================================================================
-
     def load_golden_dataset(self) -> List[Dict]:
         """
         Load golden dataset for evaluation.
@@ -340,6 +364,7 @@ class TravelChatbotEvaluator:
             "r",
             encoding="utf-8",
         ) as f:
+
             data = json.load(f)
 
         logger.info(
@@ -349,18 +374,11 @@ class TravelChatbotEvaluator:
 
         return data
 
+
     # ===================================================================
     # Create sample golden dataset
     # ===================================================================
-
     def _create_sample_dataset(self) -> List[Dict]:
-        """
-        Create sample golden dataset if it does not exist.
-
-        Each record contains:
-            question
-            ground_truth
-        """
 
         sample_data = [
 
@@ -427,7 +445,6 @@ class TravelChatbotEvaluator:
                     "destination."
                 ),
             },
-
         ]
 
         self.golden_dataset_path.parent.mkdir(
@@ -440,6 +457,7 @@ class TravelChatbotEvaluator:
             "w",
             encoding="utf-8",
         ) as f:
+
             json.dump(
                 sample_data,
                 f,
@@ -453,26 +471,14 @@ class TravelChatbotEvaluator:
 
         return sample_data
 
+
     # ===================================================================
     # Generate chatbot responses
     # ===================================================================
-
     def generate_responses(
         self,
         questions: List[str],
     ) -> Tuple[List[str], List[List[str]]]:
-        """
-        Generate chatbot responses.
-
-        For each question:
-            1. Retrieve relevant documents.
-            2. Generate answer.
-            3. Collect retrieved contexts.
-
-        Returns:
-            answers
-            contexts
-        """
 
         answers = []
         contexts = []
@@ -489,7 +495,6 @@ class TravelChatbotEvaluator:
                 # -------------------------------------------------------
                 # Retrieve documents
                 # -------------------------------------------------------
-
                 docs, _ = self.engine.search_by_text(
                     question,
                     k=5,
@@ -498,7 +503,6 @@ class TravelChatbotEvaluator:
                 # -------------------------------------------------------
                 # Generate answer
                 # -------------------------------------------------------
-
                 answer = self.engine.synthesize_response(
                     docs,
                     question,
@@ -507,7 +511,6 @@ class TravelChatbotEvaluator:
                 # -------------------------------------------------------
                 # Extract context text
                 # -------------------------------------------------------
-
                 context_texts = [
                     doc.page_content
                     for doc in docs
@@ -533,10 +536,10 @@ class TravelChatbotEvaluator:
 
         return answers, contexts
 
+
     # ===================================================================
     # Score one metric for one question
     # ===================================================================
-
     async def _score_single_question(
         self,
         metric_name: str,
@@ -546,25 +549,12 @@ class TravelChatbotEvaluator:
         contexts: List[str],
         ground_truth: str,
     ) -> float:
-        """
-        Score one question using one Ragas 0.4.3 collection metric.
-
-        Ragas 0.4.x:
-            await metric.ascore(...)
-
-        returns:
-            MetricResult
-
-        Numeric score:
-            result.value
-        """
 
         try:
 
             # -----------------------------------------------------------
             # Faithfulness
             # -----------------------------------------------------------
-
             if metric_name == "faithfulness":
 
                 result = await metric.ascore(
@@ -576,7 +566,6 @@ class TravelChatbotEvaluator:
             # -----------------------------------------------------------
             # Answer Relevancy
             # -----------------------------------------------------------
-
             elif metric_name == "answer_relevancy":
 
                 result = await metric.ascore(
@@ -587,7 +576,6 @@ class TravelChatbotEvaluator:
             # -----------------------------------------------------------
             # Context Precision
             # -----------------------------------------------------------
-
             elif metric_name == "context_precision":
 
                 result = await metric.ascore(
@@ -599,7 +587,6 @@ class TravelChatbotEvaluator:
             # -----------------------------------------------------------
             # Context Recall
             # -----------------------------------------------------------
-
             elif metric_name == "context_recall":
 
                 result = await metric.ascore(
@@ -635,302 +622,421 @@ class TravelChatbotEvaluator:
 
             return 0.0
 
+
     # ===================================================================
     # Run Ragas evaluation
     # ===================================================================
-
     async def run_ragas_evaluation(self):
-        """
-        Run complete Ragas 0.4.3 evaluation.
-
-        Calculates:
-
-            1. Faithfulness
-            2. Answer Relevancy
-            3. Context Precision
-            4. Context Recall
-
-        Saves:
-
-            reports/evaluation_summary.json
-            reports/evaluation_detailed.csv
-        """
 
         logger.info("=" * 70)
         logger.info("Starting Ragas 0.4.3 Evaluation...")
         logger.info("=" * 70)
 
         # ---------------------------------------------------------------
-        # Load golden dataset
+        # Initialize MLflow
         # ---------------------------------------------------------------
-
-        golden_data = self.load_golden_dataset()
-
-        if not golden_data:
-
-            logger.error(
-                "No evaluation data available."
-            )
-
-            return None
-
-        logger.info(
-            "Loaded %d test cases",
-            len(golden_data),
-        )
+        self._initialize_mlflow()
 
         # ---------------------------------------------------------------
-        # Extract questions and references
+        # Start MLflow run
         # ---------------------------------------------------------------
+        with mlflow.start_run(
+            run_name="ragas_evaluation"
+        ) as run:
 
-        questions = [
-            item["question"]
-            for item in golden_data
-        ]
-
-        ground_truths = [
-            item["ground_truth"]
-            for item in golden_data
-        ]
-
-        # ---------------------------------------------------------------
-        # Generate chatbot responses
-        # ---------------------------------------------------------------
-
-        logger.info(
-            "Generating responses..."
-        )
-
-        answers, contexts = self.generate_responses(
-            questions
-        )
-
-        # ---------------------------------------------------------------
-        # Initialize Azure Ragas models
-        # ---------------------------------------------------------------
-
-        try:
-
-            self._initialize_ragas_models()
-
-        except Exception as e:
-
-            logger.error(
-                "Unable to initialize Ragas models: %s",
-                e,
-            )
-
-            logger.error(
-                "Check Azure OpenAI configuration in .env."
-            )
-
-            return None
-
-        # ---------------------------------------------------------------
-        # Create Ragas metrics
-        # ---------------------------------------------------------------
-
-        logger.info(
-            "Initializing Ragas metrics..."
-        )
-
-        self.metrics = {
-
-            "faithfulness": Faithfulness(
-                llm=self.ragas_llm,
-            ),
-
-            "answer_relevancy": AnswerRelevancy(
-                llm=self.ragas_llm,
-                embeddings=self.ragas_embeddings,
-            ),
-
-            "context_precision": ContextPrecision(
-                llm=self.ragas_llm,
-            ),
-
-            "context_recall": ContextRecall(
-                llm=self.ragas_llm,
-            ),
-
-        }
-
-        logger.info(
-            "All four Ragas metrics initialized."
-        )
-
-        # ---------------------------------------------------------------
-        # Evaluate every test case
-        # ---------------------------------------------------------------
-
-        detailed_results = []
-
-        for index, (
-            question,
-            answer,
-            retrieved_contexts,
-            ground_truth,
-        ) in enumerate(
-            zip(
-                questions,
-                answers,
-                contexts,
-                ground_truths,
-            ),
-            start=1,
-        ):
+            self.mlflow_run = run
 
             logger.info(
-                "Evaluating test case %d/%d",
-                index,
-                len(questions),
+                "MLflow RAGAS run started: %s",
+                run.info.run_id,
             )
+
+            # -----------------------------------------------------------
+            # Load golden dataset
+            # -----------------------------------------------------------
+            golden_data = self.load_golden_dataset()
+
+            if not golden_data:
+
+                logger.error(
+                    "No evaluation data available."
+                )
+
+                mlflow.set_tag(
+                    "evaluation_status",
+                    "failed",
+                )
+
+                return None
 
             logger.info(
-                "Question: %s",
-                question,
+                "Loaded %d test cases",
+                len(golden_data),
             )
 
-            row = {
+            # -----------------------------------------------------------
+            # Log evaluation configuration to MLflow
+            # -----------------------------------------------------------
+            mlflow.log_params({
+                "ragas_version": "0.4.3",
+                "evaluation_framework": "RAGAS",
+                "evaluation_metrics": (
+                    "faithfulness,answer_relevancy,"
+                    "context_precision,context_recall"
+                ),
+                "test_cases": len(golden_data),
+                "llm_deployment": (
+                    Config.AZURE_OPENAI_DEPLOYMENT_NAME
+                ),
+                "embedding_deployment": (
+                    Config.AZURE_OPENAI_EMBEDDING_DEPLOYMENT
+                ),
+                "llm_endpoint": (
+                    Config.AZURE_OPENAI_ENDPOINT
+                ),
+            })
 
-                "question": question,
-
-                "answer": answer,
-
-                "contexts": retrieved_contexts,
-
-                "ground_truth": ground_truth,
-
-            }
+            mlflow.set_tags({
+                "project": "WanderNest Travels",
+                "evaluation_type": "RAGAS",
+                "framework": "RAGAS 0.4.3",
+                "environment": "Azure",
+            })
 
             # -----------------------------------------------------------
-            # Calculate all four metrics
+            # Extract questions and references
             # -----------------------------------------------------------
-
-            for metric_name, metric in self.metrics.items():
-
-                score = await self._score_single_question(
-                    metric_name=metric_name,
-                    metric=metric,
-                    question=question,
-                    answer=answer,
-                    contexts=retrieved_contexts,
-                    ground_truth=ground_truth,
-                )
-
-                row[metric_name] = score
-
-                logger.info(
-                    "  %-20s %.4f",
-                    metric_name,
-                    score,
-                )
-
-            detailed_results.append(row)
-
-        # ---------------------------------------------------------------
-        # Calculate aggregate scores
-        # ---------------------------------------------------------------
-
-        metric_names = [
-            "faithfulness",
-            "answer_relevancy",
-            "context_precision",
-            "context_recall",
-        ]
-
-        metric_scores = {}
-
-        for metric_name in metric_names:
-
-            scores = [
-                float(row[metric_name])
-                for row in detailed_results
+            questions = [
+                item["question"]
+                for item in golden_data
             ]
 
-            if scores:
+            ground_truths = [
+                item["ground_truth"]
+                for item in golden_data
+            ]
 
-                metric_scores[metric_name] = (
-                    sum(scores) / len(scores)
+            # -----------------------------------------------------------
+            # Generate chatbot responses
+            # -----------------------------------------------------------
+            logger.info(
+                "Generating responses..."
+            )
+
+            answers, contexts = self.generate_responses(
+                questions
+            )
+
+            # -----------------------------------------------------------
+            # Initialize Azure Ragas models
+            # -----------------------------------------------------------
+            try:
+
+                self._initialize_ragas_models()
+
+            except Exception as e:
+
+                logger.error(
+                    "Unable to initialize Ragas models: %s",
+                    e,
                 )
 
-            else:
+                logger.error(
+                    "Check Azure OpenAI configuration in .env."
+                )
 
-                metric_scores[metric_name] = 0.0
+                mlflow.set_tag(
+                    "evaluation_status",
+                    "failed",
+                )
 
-        # ---------------------------------------------------------------
-        # Display results
-        # ---------------------------------------------------------------
+                mlflow.log_param(
+                    "initialization_error",
+                    str(e)[:500],
+                )
 
-        logger.info("")
-        logger.info("=" * 70)
-        logger.info("RAGAS EVALUATION RESULTS")
-        logger.info("=" * 70)
+                return None
 
-        logger.info(
-            "  Faithfulness:       %.4f",
-            metric_scores["faithfulness"],
-        )
+            # -----------------------------------------------------------
+            # Create Ragas metrics
+            # -----------------------------------------------------------
+            logger.info(
+                "Initializing Ragas metrics..."
+            )
 
-        logger.info(
-            "  Answer Relevancy:   %.4f",
-            metric_scores["answer_relevancy"],
-        )
+            self.metrics = {
 
-        logger.info(
-            "  Context Precision:  %.4f",
-            metric_scores["context_precision"],
-        )
+                "faithfulness": Faithfulness(
+                    llm=self.ragas_llm,
+                ),
 
-        logger.info(
-            "  Context Recall:     %.4f",
-            metric_scores["context_recall"],
-        )
+                "answer_relevancy": AnswerRelevancy(
+                    llm=self.ragas_llm,
+                    embeddings=self.ragas_embeddings,
+                ),
 
-        logger.info("=" * 70)
+                "context_precision": ContextPrecision(
+                    llm=self.ragas_llm,
+                ),
 
-        # ---------------------------------------------------------------
-        # Save results
-        # ---------------------------------------------------------------
+                "context_recall": ContextRecall(
+                    llm=self.ragas_llm,
+                ),
+            }
 
-        dataset_dict = {
+            logger.info(
+                "All four Ragas metrics initialized."
+            )
 
-            "question": questions,
+            # -----------------------------------------------------------
+            # Evaluate every test case
+            # -----------------------------------------------------------
+            detailed_results = []
 
-            "answer": answers,
+            for index, (
+                question,
+                answer,
+                retrieved_contexts,
+                ground_truth,
+            ) in enumerate(
+                zip(
+                    questions,
+                    answers,
+                    contexts,
+                    ground_truths,
+                ),
+                start=1,
+            ):
 
-            "contexts": contexts,
+                logger.info(
+                    "Evaluating test case %d/%d",
+                    index,
+                    len(questions),
+                )
 
-            "ground_truth": ground_truths,
+                logger.info(
+                    "Question: %s",
+                    question,
+                )
 
-        }
+                row = {
+                    "question": question,
+                    "answer": answer,
+                    "contexts": retrieved_contexts,
+                    "ground_truth": ground_truth,
+                }
 
-        self._save_results(
-            metric_scores,
-            dataset_dict,
-            detailed_results,
-        )
+                # -------------------------------------------------------
+                # Calculate all four metrics
+                # -------------------------------------------------------
+                for metric_name, metric in self.metrics.items():
 
-        return metric_scores
+                    score = await self._score_single_question(
+                        metric_name=metric_name,
+                        metric=metric,
+                        question=question,
+                        answer=answer,
+                        contexts=retrieved_contexts,
+                        ground_truth=ground_truth,
+                    )
+
+                    row[metric_name] = score
+
+                    logger.info(
+                        "  %-20s %.4f",
+                        metric_name,
+                        score,
+                    )
+
+                    # ---------------------------------------------------
+                    # MLflow per-test-case metric
+                    # ---------------------------------------------------
+                    mlflow.log_metric(
+                        f"{metric_name}_test_{index}",
+                        score,
+                    )
+
+                detailed_results.append(row)
+
+            # -----------------------------------------------------------
+            # Calculate aggregate scores
+            # -----------------------------------------------------------
+            metric_names = [
+                "faithfulness",
+                "answer_relevancy",
+                "context_precision",
+                "context_recall",
+            ]
+
+            metric_scores = {}
+
+            for metric_name in metric_names:
+
+                scores = [
+                    float(row[metric_name])
+                    for row in detailed_results
+                ]
+
+                if scores:
+
+                    metric_scores[metric_name] = (
+                        sum(scores) / len(scores)
+                    )
+
+                else:
+
+                    metric_scores[metric_name] = 0.0
+
+            # -----------------------------------------------------------
+            # Display results
+            # -----------------------------------------------------------
+            logger.info("")
+            logger.info("=" * 70)
+            logger.info("RAGAS EVALUATION RESULTS")
+            logger.info("=" * 70)
+
+            logger.info(
+                "  Faithfulness:       %.4f",
+                metric_scores["faithfulness"],
+            )
+
+            logger.info(
+                "  Answer Relevancy:   %.4f",
+                metric_scores["answer_relevancy"],
+            )
+
+            logger.info(
+                "  Context Precision:  %.4f",
+                metric_scores["context_precision"],
+            )
+
+            logger.info(
+                "  Context Recall:     %.4f",
+                metric_scores["context_recall"],
+            )
+
+            logger.info("=" * 70)
+
+            # -----------------------------------------------------------
+            # MLflow aggregate metrics
+            # -----------------------------------------------------------
+            logger.info(
+                "Logging aggregate RAGAS metrics to MLflow..."
+            )
+
+            mlflow.log_metrics({
+                "faithfulness": metric_scores[
+                    "faithfulness"
+                ],
+                "answer_relevancy": metric_scores[
+                    "answer_relevancy"
+                ],
+                "context_precision": metric_scores[
+                    "context_precision"
+                ],
+                "context_recall": metric_scores[
+                    "context_recall"
+                ],
+            })
+
+            # -----------------------------------------------------------
+            # Save results
+            # -----------------------------------------------------------
+            dataset_dict = {
+                "question": questions,
+                "answer": answers,
+                "contexts": contexts,
+                "ground_truth": ground_truths,
+            }
+
+            summary = self._save_results(
+                metric_scores,
+                dataset_dict,
+                detailed_results,
+            )
+
+            # -----------------------------------------------------------
+            # Log evaluation artifacts to MLflow
+            # -----------------------------------------------------------
+            summary_path = (
+                self.output_dir /
+                "evaluation_summary.json"
+            )
+
+            detailed_path = (
+                self.output_dir /
+                "evaluation_detailed.csv"
+            )
+
+            if summary_path.exists():
+
+                mlflow.log_artifact(
+                    str(summary_path),
+                    artifact_path="evaluation",
+                )
+
+            if detailed_path.exists():
+
+                mlflow.log_artifact(
+                    str(detailed_path),
+                    artifact_path="evaluation",
+                )
+
+            # -----------------------------------------------------------
+            # Log pass/fail status
+            # -----------------------------------------------------------
+            passed = bool(
+                summary.get(
+                    "passed",
+                    False,
+                )
+            )
+
+            mlflow.set_tag(
+                "evaluation_status",
+                "passed" if passed else "failed",
+            )
+
+            mlflow.set_tag(
+                "evaluation_passed",
+                str(passed).lower(),
+            )
+
+            mlflow.log_param(
+                "faithfulness_threshold",
+                summary["thresholds"]["faithfulness"],
+            )
+
+            mlflow.log_param(
+                "answer_relevancy_threshold",
+                summary["thresholds"]["answer_relevancy"],
+            )
+
+            # -----------------------------------------------------------
+            # Final MLflow message
+            # -----------------------------------------------------------
+            logger.info(
+                "MLflow RAGAS run completed: %s",
+                run.info.run_id,
+            )
+
+            logger.info(
+                "MLflow experiment: %s",
+                Config.MLFLOW_EXPERIMENT_NAME,
+            )
+
+            return metric_scores
+
 
     # ===================================================================
     # Save evaluation results
     # ===================================================================
-
     def _save_results(
         self,
         results: dict,
         dataset_dict: dict,
         detailed_results: List[Dict],
     ):
-        """
-        Save evaluation results.
-
-        Files:
-
-            reports/evaluation_summary.json
-            reports/evaluation_detailed.csv
-        """
 
         self.output_dir.mkdir(
             parents=True,
@@ -940,7 +1046,6 @@ class TravelChatbotEvaluator:
         # ---------------------------------------------------------------
         # Pass/fail thresholds
         # ---------------------------------------------------------------
-
         min_faithfulness = 0.70
         min_relevancy = 0.70
 
@@ -969,7 +1074,6 @@ class TravelChatbotEvaluator:
         # ---------------------------------------------------------------
         # Summary
         # ---------------------------------------------------------------
-
         summary = {
 
             "faithfulness": faithfulness_score,
@@ -997,15 +1101,11 @@ class TravelChatbotEvaluator:
             ),
 
             "thresholds": {
-
                 "faithfulness": min_faithfulness,
-
                 "answer_relevancy": min_relevancy,
-
             },
 
             "passed": passed,
-
         }
 
         summary_path = (
@@ -1033,7 +1133,6 @@ class TravelChatbotEvaluator:
         # ---------------------------------------------------------------
         # Detailed CSV
         # ---------------------------------------------------------------
-
         detailed_rows = []
 
         for row in detailed_results:
@@ -1065,7 +1164,6 @@ class TravelChatbotEvaluator:
                 "context_recall": row[
                     "context_recall"
                 ],
-
             })
 
         detailed_df = pd.DataFrame(
@@ -1090,7 +1188,6 @@ class TravelChatbotEvaluator:
         # ---------------------------------------------------------------
         # Final pass/fail
         # ---------------------------------------------------------------
-
         if passed:
 
             logger.info(
@@ -1105,14 +1202,11 @@ class TravelChatbotEvaluator:
 
         return summary
 
+
     # ===================================================================
     # Synchronous wrapper
     # ===================================================================
-
     def run(self):
-        """
-        Run evaluation synchronously.
-        """
 
         try:
 
@@ -1145,13 +1239,12 @@ class TravelChatbotEvaluator:
 # ===========================================================================
 # Main evaluation function
 # ===========================================================================
-
 def run_evaluation():
+
     """
     Main evaluation function.
 
     Pass criteria:
-
         Faithfulness >= 0.70
         Answer Relevancy >= 0.70
 
@@ -1239,7 +1332,6 @@ def run_evaluation():
 # ===========================================================================
 # Command-line entry point
 # ===========================================================================
-
 if __name__ == "__main__":
 
     exit_code = run_evaluation()
