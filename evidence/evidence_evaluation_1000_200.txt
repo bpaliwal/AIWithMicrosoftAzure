@@ -1,0 +1,2655 @@
+DEBUG: Running in Docker/container environment. Using environment variables; .env is not required.
+INFO:azureml.mlflow._internal.utils:Parsing tracking uri /mlflow/v1.0/subscriptions/a0e7e508-3870-4e84-b3d3-d1a183ee5089/resourceGroups/marchcohortbpaliwal/providers/Microsoft.MachineLearningServices/workspaces/bspproj3ml
+INFO:azureml.mlflow._internal.utils:Tracking uri /mlflow/v1.0/subscriptions/a0e7e508-3870-4e84-b3d3-d1a183ee5089/resourceGroups/marchcohortbpaliwal/providers/Microsoft.MachineLearningServices/workspaces/bspproj3ml has sub id a0e7e508-3870-4e84-b3d3-d1a183ee5089, resource group marchcohortbpaliwal, and workspace bspproj3ml
+INFO:azureml.mlflow._common._cloud.cloud:Fetching cloud metadata from known urls
+INFO:azureml.mlflow._common._cloud.cloud:Cloud was fetched from known metadataurls
+INFO:azureml.mlflow._common._cloud.cloud:Cloud metadata not found so falling back to AzureCloud as default
+INFO:azure.identity._credentials.environment:Incomplete environment configuration for EnvironmentCredential. These variables are set: AZURE_TENANT_ID
+INFO:azure.identity._credentials.managed_identity:ManagedIdentityCredential will use IMDS
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+DEBUG: MLflow configured successfully.
+DEBUG: Tracking URI: azureml://eastus.api.azureml.ms/mlflow/v1.0/subscriptions/a0e7e508-3870-4e84-b3d3-d1a183ee5089/resourceGroups/marchcohortbpaliwal/providers/Microsoft.MachineLearningServices/workspaces/bspproj3ml
+DEBUG: Azure Content Safety client initialized successfully.
+DEBUG: Initializing AzureChatOpenAI with endpoint https://bsp-project3-resource.openai.azure.com and deployment gpt-5.4-mini
+DEBUG: AzureChatOpenAI initialized successfully.
+DEBUG: Initializing AzureOpenAIEmbeddings with endpoint https://bsp-project3-resource.openai.azure.com and deployment text-embedding-3-small
+DEBUG: AzureOpenAIEmbeddings initialized successfully.
+DEBUG: Initializing vector store...
+DEBUG: Configured Azure Search endpoint: https://bspproject3.search.windows.net
+DEBUG: Configured Azure Search index: bspproject3index
+DEBUG: Initializing AzureSearch vector store...
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspproject3.search.windows.net/indexes('bspproject3index')?api-version=2026-04-01'
+Request method: 'GET'
+Request headers:
+    'Accept': 'application/json;odata.metadata=minimal'
+    'x-ms-client-request-id': 'd9dd1eec-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'langchain azsdk-python-search-documents/12.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'api-key': 'REDACTED'
+No body was attached to the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; odata.metadata=minimal; odata.streaming=true; charset=utf-8'
+    'Content-Encoding': 'REDACTED'
+    'ETag': '"0x8DF01A0F6CE353E"'
+    'Vary': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'Preference-Applied': 'REDACTED'
+    'OData-Version': 'REDACTED'
+    'request-id': 'd9dd1eec-9f7d-11f1-bbe8-02aad2fd31d0'
+    'elapsed-time': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:37:10 GMT'
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspproject3.search.windows.net/indexes('bspproject3index')?api-version=2026-04-01'
+Request method: 'GET'
+Request headers:
+    'Accept': 'application/json;odata.metadata=minimal'
+    'x-ms-client-request-id': 'da1e563c-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'langchain azsdk-python-search-documents/12.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'api-key': 'REDACTED'
+No body was attached to the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; odata.metadata=minimal; odata.streaming=true; charset=utf-8'
+    'Content-Encoding': 'REDACTED'
+    'ETag': '"0x8DF01A0F6CE353E"'
+    'Vary': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'Preference-Applied': 'REDACTED'
+    'OData-Version': 'REDACTED'
+    'request-id': 'da1e563c-9f7d-11f1-bbe8-02aad2fd31d0'
+    'elapsed-time': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:37:10 GMT'
+DEBUG: AzureSearch vector store initialized successfully.
+DEBUG: Vector store initialized successfully.
+INFO:evaluation:======================================================================
+INFO:evaluation:Starting Ragas 0.4.3 Evaluation...
+INFO:evaluation:======================================================================
+INFO:evaluation:MLflow tracking URI: azureml://eastus.api.azureml.ms/mlflow/v1.0/subscriptions/a0e7e508-3870-4e84-b3d3-d1a183ee5089/resourceGroups/marchcohortbpaliwal/providers/Microsoft.MachineLearningServices/workspaces/bspproj3ml
+INFO:evaluation:MLflow experiment: travel-search-rag
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:evaluation:MLflow experiment initialized: travel-search-rag
+INFO:evaluation:MLflow experiment ID: a4d5040c-45ff-48a5-bb11-0c87edef00b5
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:evaluation:MLflow RAGAS run started: 8ea2ad89-1c0e-4bdf-b179-d28ab67e7e53
+INFO:evaluation:Golden dataset loaded from data/golden_dataset.json
+INFO:evaluation:Loaded 15 test cases
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:evaluation:Generating responses...
+INFO:evaluation:Generating answer for: What is the specific reimbursement percentage for an Air India passenger who is involuntarily downgraded on a domestic flight?
+DEBUG: Text Query: What is the specific reimbursement percentage for an Air India passenger who is involuntarily downgraded on a domestic flight?
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+⚠️ MLflow disabled for search_by_text: Run with UUID 8ea2ad89-1c0e-4bdf-b179-d28ab67e7e53 is already active. To start a new run, first end the current run with mlflow.end_run(). To start a nested run, call start_run with nested=True
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspprj3safety.cognitiveservices.azure.com//contentsafety/text:analyze?api-version=2023-10-01'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '138'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': 'dbe746ea-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'azsdk-python-ai-contentsafety/1.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'Ocp-Apim-Subscription-Key': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'apim-request-id': 'REDACTED'
+    'csp-billing-usage': 'REDACTED'
+    'api-supported-versions': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'x-content-type-options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:37:13 GMT'
+DEBUG: Performing similarity search with k=5
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspproject3.search.windows.net/indexes('bspproject3index')/docs/search.post.search?api-version=2026-04-01'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '31274'
+    'Accept': 'application/json;odata.metadata=none'
+    'x-ms-client-request-id': 'dc43f8b8-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'langchain azsdk-python-search-documents/12.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'api-key': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; odata.metadata=none; odata.streaming=true; charset=utf-8'
+    'Content-Encoding': 'REDACTED'
+    'Vary': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'Preference-Applied': 'REDACTED'
+    'OData-Version': 'REDACTED'
+    'request-id': 'dc43f8b8-9f7d-11f1-bbe8-02aad2fd31d0'
+    'elapsed-time': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:37:14 GMT'
+DEBUG: Similarity search returned 5 documents.
+DEBUG: Retrieval latency: 0.911s
+DEBUG: Unique source documents: 3
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+⚠️ MLflow disabled for synthesize_response: Run with UUID 8ea2ad89-1c0e-4bdf-b179-d28ab67e7e53 is already active. To start a new run, first end the current run with mlflow.end_run(). To start a nested run, call start_run with nested=True
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspprj3safety.cognitiveservices.azure.com//contentsafety/text:analyze?api-version=2023-10-01'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '138'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': 'dd030f14-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'azsdk-python-ai-contentsafety/1.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'Ocp-Apim-Subscription-Key': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'apim-request-id': 'REDACTED'
+    'csp-billing-usage': 'REDACTED'
+    'api-supported-versions': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'x-content-type-options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:37:15 GMT'
+DEBUG: Generating response using Azure OpenAI...
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+DEBUG: LLM response generated successfully.
+DEBUG: LLM generation latency: 1.611s
+DEBUG: Token usage - input=1279, output=60, total=1339
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspprj3safety.cognitiveservices.azure.com//contentsafety/text:analyze?api-version=2023-10-01'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '231'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': 'de0f2d3e-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'azsdk-python-ai-contentsafety/1.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'Ocp-Apim-Subscription-Key': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'apim-request-id': 'REDACTED'
+    'csp-billing-usage': 'REDACTED'
+    'api-supported-versions': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'x-content-type-options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:37:16 GMT'
+INFO:evaluation:Generating answer for: Does Air India allow a name change on a PNR once it has been created by a travel agent?
+DEBUG: Text Query: Does Air India allow a name change on a PNR once it has been created by a travel agent?
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+⚠️ MLflow disabled for search_by_text: Run with UUID 8ea2ad89-1c0e-4bdf-b179-d28ab67e7e53 is already active. To start a new run, first end the current run with mlflow.end_run(). To start a nested run, call start_run with nested=True
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspprj3safety.cognitiveservices.azure.com//contentsafety/text:analyze?api-version=2023-10-01'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '99'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': 'de6a630c-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'azsdk-python-ai-contentsafety/1.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'Ocp-Apim-Subscription-Key': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'apim-request-id': 'REDACTED'
+    'csp-billing-usage': 'REDACTED'
+    'api-supported-versions': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'x-content-type-options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:37:17 GMT'
+DEBUG: Performing similarity search with k=5
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspproject3.search.windows.net/indexes('bspproject3index')/docs/search.post.search?api-version=2026-04-01'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '31332'
+    'Accept': 'application/json;odata.metadata=none'
+    'x-ms-client-request-id': 'de9687fc-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'langchain azsdk-python-search-documents/12.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'api-key': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; odata.metadata=none; odata.streaming=true; charset=utf-8'
+    'Content-Encoding': 'REDACTED'
+    'Vary': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'Preference-Applied': 'REDACTED'
+    'OData-Version': 'REDACTED'
+    'request-id': 'de9687fc-9f7d-11f1-bbe8-02aad2fd31d0'
+    'elapsed-time': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:37:18 GMT'
+DEBUG: Similarity search returned 5 documents.
+DEBUG: Retrieval latency: 0.407s
+DEBUG: Unique source documents: 1
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+⚠️ MLflow disabled for synthesize_response: Run with UUID 8ea2ad89-1c0e-4bdf-b179-d28ab67e7e53 is already active. To start a new run, first end the current run with mlflow.end_run(). To start a nested run, call start_run with nested=True
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspprj3safety.cognitiveservices.azure.com//contentsafety/text:analyze?api-version=2023-10-01'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '99'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': 'df06c404-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'azsdk-python-ai-contentsafety/1.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'Ocp-Apim-Subscription-Key': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'apim-request-id': 'REDACTED'
+    'csp-billing-usage': 'REDACTED'
+    'api-supported-versions': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'x-content-type-options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:37:18 GMT'
+DEBUG: Generating response using Azure OpenAI...
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+DEBUG: LLM response generated successfully.
+DEBUG: LLM generation latency: 1.695s
+DEBUG: Token usage - input=1166, output=130, total=1296
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspprj3safety.cognitiveservices.azure.com//contentsafety/text:analyze?api-version=2023-10-01'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '601'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': 'e02057d8-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'azsdk-python-ai-contentsafety/1.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'Ocp-Apim-Subscription-Key': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'apim-request-id': 'REDACTED'
+    'csp-billing-usage': 'REDACTED'
+    'api-supported-versions': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'x-content-type-options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:37:20 GMT'
+INFO:evaluation:Generating answer for: According to Air India's waiver policy, what is the time threshold for a domestic flight reschedule to qualify for a full refund?
+DEBUG: Text Query: According to Air India's waiver policy, what is the time threshold for a domestic flight reschedule to qualify for a full refund?
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+⚠️ MLflow disabled for search_by_text: Run with UUID 8ea2ad89-1c0e-4bdf-b179-d28ab67e7e53 is already active. To start a new run, first end the current run with mlflow.end_run(). To start a nested run, call start_run with nested=True
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspprj3safety.cognitiveservices.azure.com//contentsafety/text:analyze?api-version=2023-10-01'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '141'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': 'e082dd2c-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'azsdk-python-ai-contentsafety/1.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'Ocp-Apim-Subscription-Key': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'apim-request-id': 'REDACTED'
+    'csp-billing-usage': 'REDACTED'
+    'api-supported-versions': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'x-content-type-options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:37:20 GMT'
+DEBUG: Performing similarity search with k=5
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspproject3.search.windows.net/indexes('bspproject3index')/docs/search.post.search?api-version=2026-04-01'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '31210'
+    'Accept': 'application/json;odata.metadata=none'
+    'x-ms-client-request-id': 'e0bf7ff2-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'langchain azsdk-python-search-documents/12.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'api-key': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; odata.metadata=none; odata.streaming=true; charset=utf-8'
+    'Content-Encoding': 'REDACTED'
+    'Vary': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'Preference-Applied': 'REDACTED'
+    'OData-Version': 'REDACTED'
+    'request-id': 'e0bf7ff2-9f7d-11f1-bbe8-02aad2fd31d0'
+    'elapsed-time': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:37:21 GMT'
+DEBUG: Similarity search returned 5 documents.
+DEBUG: Retrieval latency: 0.493s
+DEBUG: Unique source documents: 3
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+⚠️ MLflow disabled for synthesize_response: Run with UUID 8ea2ad89-1c0e-4bdf-b179-d28ab67e7e53 is already active. To start a new run, first end the current run with mlflow.end_run(). To start a nested run, call start_run with nested=True
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspprj3safety.cognitiveservices.azure.com//contentsafety/text:analyze?api-version=2023-10-01'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '141'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': 'e12e740c-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'azsdk-python-ai-contentsafety/1.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'Ocp-Apim-Subscription-Key': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'apim-request-id': 'REDACTED'
+    'csp-billing-usage': 'REDACTED'
+    'api-supported-versions': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'x-content-type-options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:37:22 GMT'
+DEBUG: Generating response using Azure OpenAI...
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+DEBUG: LLM response generated successfully.
+DEBUG: LLM generation latency: 2.189s
+DEBUG: Token usage - input=1237, output=121, total=1358
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspprj3safety.cognitiveservices.azure.com//contentsafety/text:analyze?api-version=2023-10-01'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '581'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': 'e290cb38-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'azsdk-python-ai-contentsafety/1.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'Ocp-Apim-Subscription-Key': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'apim-request-id': 'REDACTED'
+    'csp-billing-usage': 'REDACTED'
+    'api-supported-versions': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'x-content-type-options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:37:24 GMT'
+INFO:evaluation:Generating answer for: What is the penalty for a 'Churn Violation' in Economy Class for Air India bookings after the allowed limit is exceeded?
+DEBUG: Text Query: What is the penalty for a 'Churn Violation' in Economy Class for Air India bookings after the allowed limit is exceeded?
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+⚠️ MLflow disabled for search_by_text: Run with UUID 8ea2ad89-1c0e-4bdf-b179-d28ab67e7e53 is already active. To start a new run, first end the current run with mlflow.end_run(). To start a nested run, call start_run with nested=True
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspprj3safety.cognitiveservices.azure.com//contentsafety/text:analyze?api-version=2023-10-01'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '132'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': 'e2f94708-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'azsdk-python-ai-contentsafety/1.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'Ocp-Apim-Subscription-Key': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'apim-request-id': 'REDACTED'
+    'csp-billing-usage': 'REDACTED'
+    'api-supported-versions': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'x-content-type-options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:37:25 GMT'
+DEBUG: Performing similarity search with k=5
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspproject3.search.windows.net/indexes('bspproject3index')/docs/search.post.search?api-version=2026-04-01'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '31278'
+    'Accept': 'application/json;odata.metadata=none'
+    'x-ms-client-request-id': 'e33ff4dc-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'langchain azsdk-python-search-documents/12.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'api-key': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; odata.metadata=none; odata.streaming=true; charset=utf-8'
+    'Content-Encoding': 'REDACTED'
+    'Vary': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'Preference-Applied': 'REDACTED'
+    'OData-Version': 'REDACTED'
+    'request-id': 'e33ff4dc-9f7d-11f1-bbe8-02aad2fd31d0'
+    'elapsed-time': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:37:25 GMT'
+DEBUG: Similarity search returned 5 documents.
+DEBUG: Retrieval latency: 0.568s
+DEBUG: Unique source documents: 1
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+⚠️ MLflow disabled for synthesize_response: Run with UUID 8ea2ad89-1c0e-4bdf-b179-d28ab67e7e53 is already active. To start a new run, first end the current run with mlflow.end_run(). To start a nested run, call start_run with nested=True
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspprj3safety.cognitiveservices.azure.com//contentsafety/text:analyze?api-version=2023-10-01'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '132'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': 'e3b17eb8-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'azsdk-python-ai-contentsafety/1.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'Ocp-Apim-Subscription-Key': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'apim-request-id': 'REDACTED'
+    'csp-billing-usage': 'REDACTED'
+    'api-supported-versions': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'x-content-type-options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:37:26 GMT'
+DEBUG: Generating response using Azure OpenAI...
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+DEBUG: LLM response generated successfully.
+DEBUG: LLM generation latency: 1.145s
+DEBUG: Token usage - input=1398, output=63, total=1461
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspprj3safety.cognitiveservices.azure.com//contentsafety/text:analyze?api-version=2023-10-01'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '242'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': 'e4752520-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'azsdk-python-ai-contentsafety/1.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'Ocp-Apim-Subscription-Key': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'apim-request-id': 'REDACTED'
+    'csp-billing-usage': 'REDACTED'
+    'api-supported-versions': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'x-content-type-options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:37:27 GMT'
+INFO:evaluation:Generating answer for: Is a ticket void allowed for domestic travel within India if the flight departs 5 days after ticket issuance?
+DEBUG: Text Query: Is a ticket void allowed for domestic travel within India if the flight departs 5 days after ticket issuance?
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+⚠️ MLflow disabled for search_by_text: Run with UUID 8ea2ad89-1c0e-4bdf-b179-d28ab67e7e53 is already active. To start a new run, first end the current run with mlflow.end_run(). To start a nested run, call start_run with nested=True
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspprj3safety.cognitiveservices.azure.com//contentsafety/text:analyze?api-version=2023-10-01'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '121'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': 'e4d6f8ae-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'azsdk-python-ai-contentsafety/1.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'Ocp-Apim-Subscription-Key': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'apim-request-id': 'REDACTED'
+    'csp-billing-usage': 'REDACTED'
+    'api-supported-versions': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'x-content-type-options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:37:28 GMT'
+DEBUG: Performing similarity search with k=5
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspproject3.search.windows.net/indexes('bspproject3index')/docs/search.post.search?api-version=2026-04-01'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '31112'
+    'Accept': 'application/json;odata.metadata=none'
+    'x-ms-client-request-id': 'e509f0ba-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'langchain azsdk-python-search-documents/12.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'api-key': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; odata.metadata=none; odata.streaming=true; charset=utf-8'
+    'Content-Encoding': 'REDACTED'
+    'Vary': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'Preference-Applied': 'REDACTED'
+    'OData-Version': 'REDACTED'
+    'request-id': 'e509f0ba-9f7d-11f1-bbe8-02aad2fd31d0'
+    'elapsed-time': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:37:28 GMT'
+DEBUG: Similarity search returned 5 documents.
+DEBUG: Retrieval latency: 0.417s
+DEBUG: Unique source documents: 2
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+⚠️ MLflow disabled for synthesize_response: Run with UUID 8ea2ad89-1c0e-4bdf-b179-d28ab67e7e53 is already active. To start a new run, first end the current run with mlflow.end_run(). To start a nested run, call start_run with nested=True
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspprj3safety.cognitiveservices.azure.com//contentsafety/text:analyze?api-version=2023-10-01'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '121'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': 'e62db9cc-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'azsdk-python-ai-contentsafety/1.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'Ocp-Apim-Subscription-Key': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'apim-request-id': 'REDACTED'
+    'csp-billing-usage': 'REDACTED'
+    'api-supported-versions': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'x-content-type-options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:37:30 GMT'
+DEBUG: Generating response using Azure OpenAI...
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+DEBUG: LLM response generated successfully.
+DEBUG: LLM generation latency: 1.113s
+DEBUG: Token usage - input=1265, output=97, total=1362
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspprj3safety.cognitiveservices.azure.com//contentsafety/text:analyze?api-version=2023-10-01'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '436'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': 'e6f14e64-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'azsdk-python-ai-contentsafety/1.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'Ocp-Apim-Subscription-Key': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'apim-request-id': 'REDACTED'
+    'csp-billing-usage': 'REDACTED'
+    'api-supported-versions': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'x-content-type-options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:37:31 GMT'
+INFO:evaluation:Generating answer for: Under the new DOT final rule, how many days does a carrier have to issue a refund for a ticket purchased with a credit card?
+DEBUG: Text Query: Under the new DOT final rule, how many days does a carrier have to issue a refund for a ticket purchased with a credit card?
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+⚠️ MLflow disabled for search_by_text: Run with UUID 8ea2ad89-1c0e-4bdf-b179-d28ab67e7e53 is already active. To start a new run, first end the current run with mlflow.end_run(). To start a nested run, call start_run with nested=True
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspprj3safety.cognitiveservices.azure.com//contentsafety/text:analyze?api-version=2023-10-01'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '136'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': 'e7e953ac-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'azsdk-python-ai-contentsafety/1.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'Ocp-Apim-Subscription-Key': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'apim-request-id': 'REDACTED'
+    'csp-billing-usage': 'REDACTED'
+    'api-supported-versions': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'x-content-type-options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:37:33 GMT'
+DEBUG: Performing similarity search with k=5
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspproject3.search.windows.net/indexes('bspproject3index')/docs/search.post.search?api-version=2026-04-01'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '31259'
+    'Accept': 'application/json;odata.metadata=none'
+    'x-ms-client-request-id': 'e81bd1a6-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'langchain azsdk-python-search-documents/12.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'api-key': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; odata.metadata=none; odata.streaming=true; charset=utf-8'
+    'Content-Encoding': 'REDACTED'
+    'Vary': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'Preference-Applied': 'REDACTED'
+    'OData-Version': 'REDACTED'
+    'request-id': 'e81bd1a6-9f7d-11f1-bbe8-02aad2fd31d0'
+    'elapsed-time': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:37:34 GMT'
+DEBUG: Similarity search returned 5 documents.
+DEBUG: Retrieval latency: 0.428s
+DEBUG: Unique source documents: 1
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+⚠️ MLflow disabled for synthesize_response: Run with UUID 8ea2ad89-1c0e-4bdf-b179-d28ab67e7e53 is already active. To start a new run, first end the current run with mlflow.end_run(). To start a nested run, call start_run with nested=True
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspprj3safety.cognitiveservices.azure.com//contentsafety/text:analyze?api-version=2023-10-01'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '136'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': 'e88c1484-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'azsdk-python-ai-contentsafety/1.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'Ocp-Apim-Subscription-Key': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'apim-request-id': 'REDACTED'
+    'csp-billing-usage': 'REDACTED'
+    'api-supported-versions': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'x-content-type-options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:37:34 GMT'
+DEBUG: Generating response using Azure OpenAI...
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+DEBUG: LLM response generated successfully.
+DEBUG: LLM generation latency: 1.064s
+DEBUG: Token usage - input=1390, output=53, total=1443
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspprj3safety.cognitiveservices.azure.com//contentsafety/text:analyze?api-version=2023-10-01'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '247'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': 'e9432714-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'azsdk-python-ai-contentsafety/1.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'Ocp-Apim-Subscription-Key': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'apim-request-id': 'REDACTED'
+    'csp-billing-usage': 'REDACTED'
+    'api-supported-versions': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'x-content-type-options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:37:35 GMT'
+INFO:evaluation:Generating answer for: How does the DOT define a 'significant change' for an international flight's arrival time?
+DEBUG: Text Query: How does the DOT define a 'significant change' for an international flight's arrival time?
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+⚠️ MLflow disabled for search_by_text: Run with UUID 8ea2ad89-1c0e-4bdf-b179-d28ab67e7e53 is already active. To start a new run, first end the current run with mlflow.end_run(). To start a nested run, call start_run with nested=True
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspprj3safety.cognitiveservices.azure.com//contentsafety/text:analyze?api-version=2023-10-01'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '102'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': 'e9a5115e-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'azsdk-python-ai-contentsafety/1.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'Ocp-Apim-Subscription-Key': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'apim-request-id': 'REDACTED'
+    'csp-billing-usage': 'REDACTED'
+    'api-supported-versions': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'x-content-type-options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:37:36 GMT'
+DEBUG: Performing similarity search with k=5
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspproject3.search.windows.net/indexes('bspproject3index')/docs/search.post.search?api-version=2026-04-01'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '31189'
+    'Accept': 'application/json;odata.metadata=none'
+    'x-ms-client-request-id': 'e9db258c-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'langchain azsdk-python-search-documents/12.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'api-key': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; odata.metadata=none; odata.streaming=true; charset=utf-8'
+    'Content-Encoding': 'REDACTED'
+    'Vary': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'Preference-Applied': 'REDACTED'
+    'OData-Version': 'REDACTED'
+    'request-id': 'e9db258c-9f7d-11f1-bbe8-02aad2fd31d0'
+    'elapsed-time': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:37:36 GMT'
+DEBUG: Similarity search returned 5 documents.
+DEBUG: Retrieval latency: 0.478s
+DEBUG: Unique source documents: 1
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+⚠️ MLflow disabled for synthesize_response: Run with UUID 8ea2ad89-1c0e-4bdf-b179-d28ab67e7e53 is already active. To start a new run, first end the current run with mlflow.end_run(). To start a nested run, call start_run with nested=True
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspprj3safety.cognitiveservices.azure.com//contentsafety/text:analyze?api-version=2023-10-01'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '102'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': 'ea4f6280-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'azsdk-python-ai-contentsafety/1.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'Ocp-Apim-Subscription-Key': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'apim-request-id': 'REDACTED'
+    'csp-billing-usage': 'REDACTED'
+    'api-supported-versions': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'x-content-type-options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:37:37 GMT'
+DEBUG: Generating response using Azure OpenAI...
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+DEBUG: LLM response generated successfully.
+DEBUG: LLM generation latency: 1.205s
+DEBUG: Token usage - input=1283, output=97, total=1380
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspprj3safety.cognitiveservices.azure.com//contentsafety/text:analyze?api-version=2023-10-01'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '478'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': 'eb1cdecc-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'azsdk-python-ai-contentsafety/1.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'Ocp-Apim-Subscription-Key': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'apim-request-id': 'REDACTED'
+    'csp-billing-usage': 'REDACTED'
+    'api-supported-versions': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'x-content-type-options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:37:38 GMT'
+INFO:evaluation:Generating answer for: If a passenger's bag is delayed on an international flight with a duration of 14 hours, what is the delay threshold for a mandatory baggage fee refund under DOT rules?
+DEBUG: Text Query: If a passenger's bag is delayed on an international flight with a duration of 14 hours, what is the delay threshold for a mandatory baggage fee refund under DOT rules?
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+⚠️ MLflow disabled for search_by_text: Run with UUID 8ea2ad89-1c0e-4bdf-b179-d28ab67e7e53 is already active. To start a new run, first end the current run with mlflow.end_run(). To start a nested run, call start_run with nested=True
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspprj3safety.cognitiveservices.azure.com//contentsafety/text:analyze?api-version=2023-10-01'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '179'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': 'eb802338-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'azsdk-python-ai-contentsafety/1.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'Ocp-Apim-Subscription-Key': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'apim-request-id': 'REDACTED'
+    'csp-billing-usage': 'REDACTED'
+    'api-supported-versions': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'x-content-type-options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:37:39 GMT'
+DEBUG: Performing similarity search with k=5
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspproject3.search.windows.net/indexes('bspproject3index')/docs/search.post.search?api-version=2026-04-01'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '31168'
+    'Accept': 'application/json;odata.metadata=none'
+    'x-ms-client-request-id': 'ebb49c76-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'langchain azsdk-python-search-documents/12.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'api-key': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; odata.metadata=none; odata.streaming=true; charset=utf-8'
+    'Content-Encoding': 'REDACTED'
+    'Vary': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'Preference-Applied': 'REDACTED'
+    'OData-Version': 'REDACTED'
+    'request-id': 'ebb49c76-9f7d-11f1-bbe8-02aad2fd31d0'
+    'elapsed-time': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:37:40 GMT'
+DEBUG: Similarity search returned 5 documents.
+DEBUG: Retrieval latency: 0.443s
+DEBUG: Unique source documents: 1
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+⚠️ MLflow disabled for synthesize_response: Run with UUID 8ea2ad89-1c0e-4bdf-b179-d28ab67e7e53 is already active. To start a new run, first end the current run with mlflow.end_run(). To start a nested run, call start_run with nested=True
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspprj3safety.cognitiveservices.azure.com//contentsafety/text:analyze?api-version=2023-10-01'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '179'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': 'ec23d924-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'azsdk-python-ai-contentsafety/1.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'Ocp-Apim-Subscription-Key': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'apim-request-id': 'REDACTED'
+    'csp-billing-usage': 'REDACTED'
+    'api-supported-versions': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'x-content-type-options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:37:40 GMT'
+DEBUG: Generating response using Azure OpenAI...
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+DEBUG: LLM response generated successfully.
+DEBUG: LLM generation latency: 1.118s
+DEBUG: Token usage - input=1379, output=119, total=1498
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspprj3safety.cognitiveservices.azure.com//contentsafety/text:analyze?api-version=2023-10-01'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '529'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': 'ece5cdcc-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'azsdk-python-ai-contentsafety/1.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'Ocp-Apim-Subscription-Key': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'apim-request-id': 'REDACTED'
+    'csp-billing-usage': 'REDACTED'
+    'api-supported-versions': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'x-content-type-options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:37:41 GMT'
+INFO:evaluation:Generating answer for: What are the mandatory characteristics of a travel voucher issued to a passenger who cannot fly due to a serious communicable disease?
+DEBUG: Text Query: What are the mandatory characteristics of a travel voucher issued to a passenger who cannot fly due to a serious communicable disease?
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+⚠️ MLflow disabled for search_by_text: Run with UUID 8ea2ad89-1c0e-4bdf-b179-d28ab67e7e53 is already active. To start a new run, first end the current run with mlflow.end_run(). To start a nested run, call start_run with nested=True
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspprj3safety.cognitiveservices.azure.com//contentsafety/text:analyze?api-version=2023-10-01'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '146'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': 'ed470cf4-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'azsdk-python-ai-contentsafety/1.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'Ocp-Apim-Subscription-Key': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'apim-request-id': 'REDACTED'
+    'csp-billing-usage': 'REDACTED'
+    'api-supported-versions': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'x-content-type-options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:37:42 GMT'
+DEBUG: Performing similarity search with k=5
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspproject3.search.windows.net/indexes('bspproject3index')/docs/search.post.search?api-version=2026-04-01'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '31257'
+    'Accept': 'application/json;odata.metadata=none'
+    'x-ms-client-request-id': 'ed7dc51e-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'langchain azsdk-python-search-documents/12.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'api-key': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; odata.metadata=none; odata.streaming=true; charset=utf-8'
+    'Content-Encoding': 'REDACTED'
+    'Vary': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'Preference-Applied': 'REDACTED'
+    'OData-Version': 'REDACTED'
+    'request-id': 'ed7dc51e-9f7d-11f1-bbe8-02aad2fd31d0'
+    'elapsed-time': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:37:43 GMT'
+DEBUG: Similarity search returned 5 documents.
+DEBUG: Retrieval latency: 0.487s
+DEBUG: Unique source documents: 1
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+⚠️ MLflow disabled for synthesize_response: Run with UUID 8ea2ad89-1c0e-4bdf-b179-d28ab67e7e53 is already active. To start a new run, first end the current run with mlflow.end_run(). To start a nested run, call start_run with nested=True
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspprj3safety.cognitiveservices.azure.com//contentsafety/text:analyze?api-version=2023-10-01'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '146'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': 'edf01998-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'azsdk-python-ai-contentsafety/1.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'Ocp-Apim-Subscription-Key': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'apim-request-id': 'REDACTED'
+    'csp-billing-usage': 'REDACTED'
+    'api-supported-versions': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'x-content-type-options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:37:43 GMT'
+DEBUG: Generating response using Azure OpenAI...
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+DEBUG: LLM response generated successfully.
+DEBUG: LLM generation latency: 1.755s
+DEBUG: Token usage - input=1277, output=112, total=1389
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspprj3safety.cognitiveservices.azure.com//contentsafety/text:analyze?api-version=2023-10-01'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '587'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': 'ef142b8e-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'azsdk-python-ai-contentsafety/1.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'Ocp-Apim-Subscription-Key': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'apim-request-id': 'REDACTED'
+    'csp-billing-usage': 'REDACTED'
+    'api-supported-versions': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'x-content-type-options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:37:45 GMT'
+INFO:evaluation:Generating answer for: Can a ticket agent retain a service fee if a flight is cancelled and the passenger is entitled to a refund?
+DEBUG: Text Query: Can a ticket agent retain a service fee if a flight is cancelled and the passenger is entitled to a refund?
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+⚠️ MLflow disabled for search_by_text: Run with UUID 8ea2ad89-1c0e-4bdf-b179-d28ab67e7e53 is already active. To start a new run, first end the current run with mlflow.end_run(). To start a nested run, call start_run with nested=True
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspprj3safety.cognitiveservices.azure.com//contentsafety/text:analyze?api-version=2023-10-01'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '119'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': 'ef7731c0-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'azsdk-python-ai-contentsafety/1.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'Ocp-Apim-Subscription-Key': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'apim-request-id': 'REDACTED'
+    'csp-billing-usage': 'REDACTED'
+    'api-supported-versions': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'x-content-type-options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:37:45 GMT'
+DEBUG: Performing similarity search with k=5
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspproject3.search.windows.net/indexes('bspproject3index')/docs/search.post.search?api-version=2026-04-01'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '31341'
+    'Accept': 'application/json;odata.metadata=none'
+    'x-ms-client-request-id': 'efa87cb2-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'langchain azsdk-python-search-documents/12.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'api-key': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; odata.metadata=none; odata.streaming=true; charset=utf-8'
+    'Content-Encoding': 'REDACTED'
+    'Vary': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'Preference-Applied': 'REDACTED'
+    'OData-Version': 'REDACTED'
+    'request-id': 'efa87cb2-9f7d-11f1-bbe8-02aad2fd31d0'
+    'elapsed-time': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:37:46 GMT'
+DEBUG: Similarity search returned 5 documents.
+DEBUG: Retrieval latency: 0.421s
+DEBUG: Unique source documents: 1
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+⚠️ MLflow disabled for synthesize_response: Run with UUID 8ea2ad89-1c0e-4bdf-b179-d28ab67e7e53 is already active. To start a new run, first end the current run with mlflow.end_run(). To start a nested run, call start_run with nested=True
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspprj3safety.cognitiveservices.azure.com//contentsafety/text:analyze?api-version=2023-10-01'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '119'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': 'f01c1230-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'azsdk-python-ai-contentsafety/1.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'Ocp-Apim-Subscription-Key': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'apim-request-id': 'REDACTED'
+    'csp-billing-usage': 'REDACTED'
+    'api-supported-versions': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'x-content-type-options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:37:47 GMT'
+DEBUG: Generating response using Azure OpenAI...
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+DEBUG: LLM response generated successfully.
+DEBUG: LLM generation latency: 1.815s
+DEBUG: Token usage - input=1309, output=133, total=1442
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspprj3safety.cognitiveservices.azure.com//contentsafety/text:analyze?api-version=2023-10-01'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '593'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': 'f146a6e8-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'azsdk-python-ai-contentsafety/1.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'Ocp-Apim-Subscription-Key': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'apim-request-id': 'REDACTED'
+    'csp-billing-usage': 'REDACTED'
+    'api-supported-versions': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'x-content-type-options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:37:49 GMT'
+INFO:evaluation:Generating answer for: Which countries require the disinsection of all in-bound flights using an aerosolized spray while passengers are on board?
+DEBUG: Text Query: Which countries require the disinsection of all in-bound flights using an aerosolized spray while passengers are on board?
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+⚠️ MLflow disabled for search_by_text: Run with UUID 8ea2ad89-1c0e-4bdf-b179-d28ab67e7e53 is already active. To start a new run, first end the current run with mlflow.end_run(). To start a nested run, call start_run with nested=True
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspprj3safety.cognitiveservices.azure.com//contentsafety/text:analyze?api-version=2023-10-01'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '134'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': 'f1a5f3d2-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'azsdk-python-ai-contentsafety/1.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'Ocp-Apim-Subscription-Key': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'apim-request-id': 'REDACTED'
+    'csp-billing-usage': 'REDACTED'
+    'api-supported-versions': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'x-content-type-options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:37:49 GMT'
+DEBUG: Performing similarity search with k=5
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspproject3.search.windows.net/indexes('bspproject3index')/docs/search.post.search?api-version=2026-04-01'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '31329'
+    'Accept': 'application/json;odata.metadata=none'
+    'x-ms-client-request-id': 'f1de0e0c-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'langchain azsdk-python-search-documents/12.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'api-key': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; odata.metadata=none; odata.streaming=true; charset=utf-8'
+    'Content-Encoding': 'REDACTED'
+    'Vary': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'Preference-Applied': 'REDACTED'
+    'OData-Version': 'REDACTED'
+    'request-id': 'f1de0e0c-9f7d-11f1-bbe8-02aad2fd31d0'
+    'elapsed-time': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:37:50 GMT'
+DEBUG: Similarity search returned 5 documents.
+DEBUG: Retrieval latency: 0.452s
+DEBUG: Unique source documents: 1
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+⚠️ MLflow disabled for synthesize_response: Run with UUID 8ea2ad89-1c0e-4bdf-b179-d28ab67e7e53 is already active. To start a new run, first end the current run with mlflow.end_run(). To start a nested run, call start_run with nested=True
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspprj3safety.cognitiveservices.azure.com//contentsafety/text:analyze?api-version=2023-10-01'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '134'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': 'f251b96a-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'azsdk-python-ai-contentsafety/1.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'Ocp-Apim-Subscription-Key': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'apim-request-id': 'REDACTED'
+    'csp-billing-usage': 'REDACTED'
+    'api-supported-versions': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'x-content-type-options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:37:50 GMT'
+DEBUG: Generating response using Azure OpenAI...
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+DEBUG: LLM response generated successfully.
+DEBUG: LLM generation latency: 1.080s
+DEBUG: Token usage - input=924, output=109, total=1033
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspprj3safety.cognitiveservices.azure.com//contentsafety/text:analyze?api-version=2023-10-01'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '466'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': 'f30b7cce-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'azsdk-python-ai-contentsafety/1.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'Ocp-Apim-Subscription-Key': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'apim-request-id': 'REDACTED'
+    'csp-billing-usage': 'REDACTED'
+    'api-supported-versions': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'x-content-type-options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:37:52 GMT'
+⚠️ Generated response blocked by governance gate.
+INFO:evaluation:Generating answer for: If an airline files for bankruptcy, what is the timeframe to file a claim with a credit card company under the Fair Credit Billing Act?
+DEBUG: Text Query: If an airline files for bankruptcy, what is the timeframe to file a claim with a credit card company under the Fair Credit Billing Act?
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+⚠️ MLflow disabled for search_by_text: Run with UUID 8ea2ad89-1c0e-4bdf-b179-d28ab67e7e53 is already active. To start a new run, first end the current run with mlflow.end_run(). To start a nested run, call start_run with nested=True
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspprj3safety.cognitiveservices.azure.com//contentsafety/text:analyze?api-version=2023-10-01'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '147'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': 'f36e2310-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'azsdk-python-ai-contentsafety/1.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'Ocp-Apim-Subscription-Key': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'apim-request-id': 'REDACTED'
+    'csp-billing-usage': 'REDACTED'
+    'api-supported-versions': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'x-content-type-options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:37:52 GMT'
+DEBUG: Performing similarity search with k=5
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspproject3.search.windows.net/indexes('bspproject3index')/docs/search.post.search?api-version=2026-04-01'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '31158'
+    'Accept': 'application/json;odata.metadata=none'
+    'x-ms-client-request-id': 'f3a32ca4-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'langchain azsdk-python-search-documents/12.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'api-key': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; odata.metadata=none; odata.streaming=true; charset=utf-8'
+    'Content-Encoding': 'REDACTED'
+    'Vary': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'Preference-Applied': 'REDACTED'
+    'OData-Version': 'REDACTED'
+    'request-id': 'f3a32ca4-9f7d-11f1-bbe8-02aad2fd31d0'
+    'elapsed-time': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:37:53 GMT'
+DEBUG: Similarity search returned 5 documents.
+DEBUG: Retrieval latency: 0.423s
+DEBUG: Unique source documents: 2
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+⚠️ MLflow disabled for synthesize_response: Run with UUID 8ea2ad89-1c0e-4bdf-b179-d28ab67e7e53 is already active. To start a new run, first end the current run with mlflow.end_run(). To start a nested run, call start_run with nested=True
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspprj3safety.cognitiveservices.azure.com//contentsafety/text:analyze?api-version=2023-10-01'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '147'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': 'f40fc346-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'azsdk-python-ai-contentsafety/1.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'Ocp-Apim-Subscription-Key': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'apim-request-id': 'REDACTED'
+    'csp-billing-usage': 'REDACTED'
+    'api-supported-versions': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'x-content-type-options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:37:53 GMT'
+DEBUG: Generating response using Azure OpenAI...
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+DEBUG: LLM response generated successfully.
+DEBUG: LLM generation latency: 1.035s
+DEBUG: Token usage - input=1279, output=92, total=1371
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspprj3safety.cognitiveservices.azure.com//contentsafety/text:analyze?api-version=2023-10-01'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '475'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': 'f4c3fe92-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'azsdk-python-ai-contentsafety/1.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'Ocp-Apim-Subscription-Key': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'apim-request-id': 'REDACTED'
+    'csp-billing-usage': 'REDACTED'
+    'api-supported-versions': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'x-content-type-options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:37:54 GMT'
+INFO:evaluation:Generating answer for: According to DOT privacy guidelines, is it considered a 'deceptive' practice for an airline to mislead a consumer regarding a material matter?
+DEBUG: Text Query: According to DOT privacy guidelines, is it considered a 'deceptive' practice for an airline to mislead a consumer regarding a material matter?
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+⚠️ MLflow disabled for search_by_text: Run with UUID 8ea2ad89-1c0e-4bdf-b179-d28ab67e7e53 is already active. To start a new run, first end the current run with mlflow.end_run(). To start a nested run, call start_run with nested=True
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspprj3safety.cognitiveservices.azure.com//contentsafety/text:analyze?api-version=2023-10-01'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '154'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': 'f5ca0980-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'azsdk-python-ai-contentsafety/1.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'Ocp-Apim-Subscription-Key': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'apim-request-id': 'REDACTED'
+    'csp-billing-usage': 'REDACTED'
+    'api-supported-versions': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'x-content-type-options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:37:56 GMT'
+DEBUG: Performing similarity search with k=5
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspproject3.search.windows.net/indexes('bspproject3index')/docs/search.post.search?api-version=2026-04-01'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '31238'
+    'Accept': 'application/json;odata.metadata=none'
+    'x-ms-client-request-id': 'f5f5f234-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'langchain azsdk-python-search-documents/12.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'api-key': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; odata.metadata=none; odata.streaming=true; charset=utf-8'
+    'Content-Encoding': 'REDACTED'
+    'Vary': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'Preference-Applied': 'REDACTED'
+    'OData-Version': 'REDACTED'
+    'request-id': 'f5f5f234-9f7d-11f1-bbe8-02aad2fd31d0'
+    'elapsed-time': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:37:57 GMT'
+DEBUG: Similarity search returned 5 documents.
+DEBUG: Retrieval latency: 0.411s
+DEBUG: Unique source documents: 2
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+⚠️ MLflow disabled for synthesize_response: Run with UUID 8ea2ad89-1c0e-4bdf-b179-d28ab67e7e53 is already active. To start a new run, first end the current run with mlflow.end_run(). To start a nested run, call start_run with nested=True
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspprj3safety.cognitiveservices.azure.com//contentsafety/text:analyze?api-version=2023-10-01'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '154'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': 'f70387b8-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'azsdk-python-ai-contentsafety/1.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'Ocp-Apim-Subscription-Key': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'apim-request-id': 'REDACTED'
+    'csp-billing-usage': 'REDACTED'
+    'api-supported-versions': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'x-content-type-options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:37:58 GMT'
+DEBUG: Generating response using Azure OpenAI...
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+DEBUG: LLM response generated successfully.
+DEBUG: LLM generation latency: 1.199s
+DEBUG: Token usage - input=1337, output=92, total=1429
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspprj3safety.cognitiveservices.azure.com//contentsafety/text:analyze?api-version=2023-10-01'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '437'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': 'f7cf983a-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'azsdk-python-ai-contentsafety/1.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'Ocp-Apim-Subscription-Key': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'apim-request-id': 'REDACTED'
+    'csp-billing-usage': 'REDACTED'
+    'api-supported-versions': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'x-content-type-options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:37:59 GMT'
+INFO:evaluation:Generating answer for: What is the DOT's role in enforcing COPPA (Children's Online Privacy Protection Act)?
+DEBUG: Text Query: What is the DOT's role in enforcing COPPA (Children's Online Privacy Protection Act)?
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+⚠️ MLflow disabled for search_by_text: Run with UUID 8ea2ad89-1c0e-4bdf-b179-d28ab67e7e53 is already active. To start a new run, first end the current run with mlflow.end_run(). To start a nested run, call start_run with nested=True
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspprj3safety.cognitiveservices.azure.com//contentsafety/text:analyze?api-version=2023-10-01'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '97'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': 'f82dd080-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'azsdk-python-ai-contentsafety/1.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'Ocp-Apim-Subscription-Key': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'apim-request-id': 'REDACTED'
+    'csp-billing-usage': 'REDACTED'
+    'api-supported-versions': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'x-content-type-options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:38:00 GMT'
+DEBUG: Performing similarity search with k=5
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspproject3.search.windows.net/indexes('bspproject3index')/docs/search.post.search?api-version=2026-04-01'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '31203'
+    'Accept': 'application/json;odata.metadata=none'
+    'x-ms-client-request-id': 'f8692248-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'langchain azsdk-python-search-documents/12.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'api-key': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; odata.metadata=none; odata.streaming=true; charset=utf-8'
+    'Content-Encoding': 'REDACTED'
+    'Vary': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'Preference-Applied': 'REDACTED'
+    'OData-Version': 'REDACTED'
+    'request-id': 'f8692248-9f7d-11f1-bbe8-02aad2fd31d0'
+    'elapsed-time': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:38:00 GMT'
+DEBUG: Similarity search returned 5 documents.
+DEBUG: Retrieval latency: 0.479s
+DEBUG: Unique source documents: 1
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+⚠️ MLflow disabled for synthesize_response: Run with UUID 8ea2ad89-1c0e-4bdf-b179-d28ab67e7e53 is already active. To start a new run, first end the current run with mlflow.end_run(). To start a nested run, call start_run with nested=True
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspprj3safety.cognitiveservices.azure.com//contentsafety/text:analyze?api-version=2023-10-01'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '97'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': 'f8d6ffac-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'azsdk-python-ai-contentsafety/1.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'Ocp-Apim-Subscription-Key': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'apim-request-id': 'REDACTED'
+    'csp-billing-usage': 'REDACTED'
+    'api-supported-versions': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'x-content-type-options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:38:01 GMT'
+DEBUG: Generating response using Azure OpenAI...
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+DEBUG: LLM response generated successfully.
+DEBUG: LLM generation latency: 1.205s
+DEBUG: Token usage - input=1138, output=70, total=1208
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspprj3safety.cognitiveservices.azure.com//contentsafety/text:analyze?api-version=2023-10-01'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '337'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': 'f9a3e40e-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'azsdk-python-ai-contentsafety/1.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'Ocp-Apim-Subscription-Key': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'apim-request-id': 'REDACTED'
+    'csp-billing-usage': 'REDACTED'
+    'api-supported-versions': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'x-content-type-options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:38:03 GMT'
+INFO:evaluation:Generating answer for: Under Air India's GDS misuse policy, what is the definition of 'Churning'?
+DEBUG: Text Query: Under Air India's GDS misuse policy, what is the definition of 'Churning'?
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+⚠️ MLflow disabled for search_by_text: Run with UUID 8ea2ad89-1c0e-4bdf-b179-d28ab67e7e53 is already active. To start a new run, first end the current run with mlflow.end_run(). To start a nested run, call start_run with nested=True
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspprj3safety.cognitiveservices.azure.com//contentsafety/text:analyze?api-version=2023-10-01'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '86'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': 'fa075840-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'azsdk-python-ai-contentsafety/1.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'Ocp-Apim-Subscription-Key': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'apim-request-id': 'REDACTED'
+    'csp-billing-usage': 'REDACTED'
+    'api-supported-versions': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'x-content-type-options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:38:03 GMT'
+DEBUG: Performing similarity search with k=5
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspproject3.search.windows.net/indexes('bspproject3index')/docs/search.post.search?api-version=2026-04-01'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '31077'
+    'Accept': 'application/json;odata.metadata=none'
+    'x-ms-client-request-id': 'fa37a4b4-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'langchain azsdk-python-search-documents/12.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'api-key': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; odata.metadata=none; odata.streaming=true; charset=utf-8'
+    'Content-Encoding': 'REDACTED'
+    'Vary': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'Preference-Applied': 'REDACTED'
+    'OData-Version': 'REDACTED'
+    'request-id': 'fa37a4b4-9f7d-11f1-bbe8-02aad2fd31d0'
+    'elapsed-time': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:38:04 GMT'
+DEBUG: Similarity search returned 5 documents.
+DEBUG: Retrieval latency: 0.477s
+DEBUG: Unique source documents: 1
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+⚠️ MLflow disabled for synthesize_response: Run with UUID 8ea2ad89-1c0e-4bdf-b179-d28ab67e7e53 is already active. To start a new run, first end the current run with mlflow.end_run(). To start a nested run, call start_run with nested=True
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspprj3safety.cognitiveservices.azure.com//contentsafety/text:analyze?api-version=2023-10-01'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '86'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': 'fab14f1c-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'azsdk-python-ai-contentsafety/1.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'Ocp-Apim-Subscription-Key': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'apim-request-id': 'REDACTED'
+    'csp-billing-usage': 'REDACTED'
+    'api-supported-versions': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'x-content-type-options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:38:04 GMT'
+DEBUG: Generating response using Azure OpenAI...
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+DEBUG: LLM response generated successfully.
+DEBUG: LLM generation latency: 1.574s
+DEBUG: Token usage - input=1277, output=89, total=1366
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspprj3safety.cognitiveservices.azure.com//contentsafety/text:analyze?api-version=2023-10-01'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '374'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': 'fbb6dc38-9f7d-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'azsdk-python-ai-contentsafety/1.0.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'Ocp-Apim-Subscription-Key': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'apim-request-id': 'REDACTED'
+    'csp-billing-usage': 'REDACTED'
+    'api-supported-versions': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'x-content-type-options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:38:06 GMT'
+INFO:evaluation:Initializing Ragas evaluator models...
+INFO:evaluation:Azure OpenAI endpoint: https://bsp-project3-resource.openai.azure.com
+INFO:evaluation:Ragas LLM deployment: gpt-5.4-mini
+INFO:evaluation:Ragas embedding deployment: text-embedding-3-small
+INFO:evaluation:Azure AsyncOpenAI client initialized successfully.
+INFO:evaluation:Ragas LLM initialized successfully with GPT-5.x parameter compatibility.
+INFO:evaluation:Ragas embeddings initialized successfully.
+INFO:evaluation:Ragas evaluator models initialized successfully.
+INFO:evaluation:Initializing Ragas metrics...
+INFO:evaluation:All four Ragas metrics initialized.
+INFO:evaluation:Evaluating test case 1/15
+INFO:evaluation:Question: What is the specific reimbursement percentage for an Air India passenger who is involuntarily downgraded on a domestic flight?
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:evaluation:  faithfulness         0.5000
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:evaluation:  answer_relevancy     0.9269
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:evaluation:  context_precision    1.0000
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:evaluation:  context_recall       1.0000
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:evaluation:Evaluating test case 2/15
+INFO:evaluation:Question: Does Air India allow a name change on a PNR once it has been created by a travel agent?
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:evaluation:  faithfulness         1.0000
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:evaluation:  answer_relevancy     0.8373
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:evaluation:  context_precision    0.8875
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:evaluation:  context_recall       1.0000
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:evaluation:Evaluating test case 3/15
+INFO:evaluation:Question: According to Air India's waiver policy, what is the time threshold for a domestic flight reschedule to qualify for a full refund?
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:evaluation:  faithfulness         1.0000
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:evaluation:  answer_relevancy     0.8489
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:evaluation:  context_precision    1.0000
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:evaluation:  context_recall       1.0000
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:evaluation:Evaluating test case 4/15
+INFO:evaluation:Question: What is the penalty for a 'Churn Violation' in Economy Class for Air India bookings after the allowed limit is exceeded?
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:evaluation:  faithfulness         0.6667
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:evaluation:  answer_relevancy     0.8731
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:evaluation:  context_precision    1.0000
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:evaluation:  context_recall       1.0000
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:evaluation:Evaluating test case 5/15
+INFO:evaluation:Question: Is a ticket void allowed for domestic travel within India if the flight departs 5 days after ticket issuance?
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:evaluation:  faithfulness         1.0000
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:evaluation:  answer_relevancy     0.8559
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:evaluation:  context_precision    0.8042
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:evaluation:  context_recall       1.0000
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:evaluation:Evaluating test case 6/15
+INFO:evaluation:Question: Under the new DOT final rule, how many days does a carrier have to issue a refund for a ticket purchased with a credit card?
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:evaluation:  faithfulness         1.0000
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:evaluation:  answer_relevancy     0.8939
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:evaluation:  context_precision    1.0000
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:evaluation:  context_recall       1.0000
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:evaluation:Evaluating test case 7/15
+INFO:evaluation:Question: How does the DOT define a 'significant change' for an international flight's arrival time?
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:evaluation:  faithfulness         1.0000
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:evaluation:  answer_relevancy     0.9160
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:evaluation:  context_precision    1.0000
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:evaluation:  context_recall       1.0000
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:evaluation:Evaluating test case 8/15
+INFO:evaluation:Question: If a passenger's bag is delayed on an international flight with a duration of 14 hours, what is the delay threshold for a mandatory baggage fee refund under DOT rules?
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:evaluation:  faithfulness         1.0000
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:evaluation:  answer_relevancy     0.8448
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:evaluation:  context_precision    1.0000
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:evaluation:  context_recall       1.0000
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:evaluation:Evaluating test case 9/15
+INFO:evaluation:Question: What are the mandatory characteristics of a travel voucher issued to a passenger who cannot fly due to a serious communicable disease?
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:evaluation:  faithfulness         0.7500
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:evaluation:  answer_relevancy     0.7740
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:evaluation:  context_precision    0.3667
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:evaluation:  context_recall       1.0000
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:evaluation:Evaluating test case 10/15
+INFO:evaluation:Question: Can a ticket agent retain a service fee if a flight is cancelled and the passenger is entitled to a refund?
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:evaluation:  faithfulness         0.8000
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:evaluation:  answer_relevancy     0.9248
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:evaluation:  context_precision    0.8042
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:evaluation:  context_recall       1.0000
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:evaluation:Evaluating test case 11/15
+INFO:evaluation:Question: Which countries require the disinsection of all in-bound flights using an aerosolized spray while passengers are on board?
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:evaluation:  faithfulness         0.0000
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:evaluation:  answer_relevancy     0.0000
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:evaluation:  context_precision    1.0000
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:evaluation:  context_recall       1.0000
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:evaluation:Evaluating test case 12/15
+INFO:evaluation:Question: If an airline files for bankruptcy, what is the timeframe to file a claim with a credit card company under the Fair Credit Billing Act?
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:evaluation:  faithfulness         1.0000
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:evaluation:  answer_relevancy     0.6116
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:evaluation:  context_precision    1.0000
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:evaluation:  context_recall       1.0000
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:evaluation:Evaluating test case 13/15
+INFO:evaluation:Question: According to DOT privacy guidelines, is it considered a 'deceptive' practice for an airline to mislead a consumer regarding a material matter?
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:evaluation:  faithfulness         0.6667
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:evaluation:  answer_relevancy     0.7253
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:evaluation:  context_precision    1.0000
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:evaluation:  context_recall       1.0000
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:evaluation:Evaluating test case 14/15
+INFO:evaluation:Question: What is the DOT's role in enforcing COPPA (Children's Online Privacy Protection Act)?
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:evaluation:  faithfulness         0.7500
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:evaluation:  answer_relevancy     0.6657
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:evaluation:  context_precision    1.0000
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:evaluation:  context_recall       1.0000
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:evaluation:Evaluating test case 15/15
+INFO:evaluation:Question: Under Air India's GDS misuse policy, what is the definition of 'Churning'?
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:evaluation:  faithfulness         1.0000
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:evaluation:  answer_relevancy     0.9110
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:evaluation:  context_precision    0.7556
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:httpx:HTTP Request: POST https://bsp-project3-resource.openai.azure.com/openai/deployments/gpt-5.4-mini/chat/completions?api-version=2024-10-21 "HTTP/1.1 200 OK"
+INFO:evaluation:  context_recall       1.0000
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:evaluation:
+INFO:evaluation:======================================================================
+INFO:evaluation:RAGAS EVALUATION RESULTS
+INFO:evaluation:======================================================================
+INFO:evaluation:  Faithfulness:       0.8089
+INFO:evaluation:  Answer Relevancy:   0.7739
+INFO:evaluation:  Context Precision:  0.9079
+INFO:evaluation:  Context Recall:     1.0000
+INFO:evaluation:======================================================================
+INFO:evaluation:Logging aggregate RAGAS metrics to MLflow...
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:evaluation:Evaluation summary saved to reports/evaluation_summary.json
+INFO:evaluation:Detailed results saved to reports/evaluation_detailed.csv
+INFO:evaluation:✅ EVALUATION PASSED
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:azureml.mlflow._store.artifact.utils:Parsing artifact uri azureml://eastus.api.azureml.ms/mlflow/v2.0/subscriptions/a0e7e508-3870-4e84-b3d3-d1a183ee5089/resourceGroups/marchcohortbpaliwal/providers/Microsoft.MachineLearningServices/workspaces/bspproj3ml/experiments/a4d5040c-45ff-48a5-bb11-0c87edef00b5/runs/8ea2ad89-1c0e-4bdf-b179-d28ab67e7e53/artifacts
+INFO:azureml.mlflow._store.artifact.utils:Artifact uri azureml://eastus.api.azureml.ms/mlflow/v2.0/subscriptions/a0e7e508-3870-4e84-b3d3-d1a183ee5089/resourceGroups/marchcohortbpaliwal/providers/Microsoft.MachineLearningServices/workspaces/bspproj3ml/experiments/a4d5040c-45ff-48a5-bb11-0c87edef00b5/runs/8ea2ad89-1c0e-4bdf-b179-d28ab67e7e53/artifacts info: {'sub-id': 'a0e7e508-3870-4e84-b3d3-d1a183ee5089', 'res-grp': 'marchcohortbpaliwal', 'ws-name': 'bspproj3ml', 'experiment': 'a4d5040c-45ff-48a5-bb11-0c87edef00b5', 'runid': '8ea2ad89-1c0e-4bdf-b179-d28ab67e7e53'}
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://eastus.api.azureml.ms/history/v1.0/subscriptions/a0e7e508-3870-4e84-b3d3-d1a183ee5089/resourceGroups/marchcohortbpaliwal/providers/Microsoft.MachineLearningServices/workspaces/bspproj3ml/experiments/a4d5040c-45ff-48a5-bb11-0c87edef00b5/runs/8ea2ad89-1c0e-4bdf-b179-d28ab67e7e53/artifacts/batch/metadata'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Accept': 'application/json'
+    'Content-Length': '59'
+    'x-ms-client-request-id': 'aeeb0784-9f7e-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'azsdk-python-mgmt-machinelearningservices/0.1.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'Authorization': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Date': 'Mon, 24 Aug 2026 05:43:08 GMT'
+    'Content-Type': 'application/json; charset=utf-8'
+    'Transfer-Encoding': 'chunked'
+    'Connection': 'keep-alive'
+    'Vary': 'REDACTED'
+    'Request-Context': 'REDACTED'
+    'x-ms-response-type': 'REDACTED'
+    'mise-correlation-id': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'x-request-time': 'REDACTED'
+    'Content-Encoding': 'REDACTED'
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspprj3storage.blob.core.windows.net/azureml/ExperimentRun/dcid.8ea2ad89-1c0e-4bdf-b179-d28ab67e7e53/evaluation/evaluation_summary.json?sv=REDACTED&sr=REDACTED&sig=REDACTED&st=REDACTED&se=REDACTED&sp=REDACTED'
+Request method: 'PUT'
+Request headers:
+    'Content-Length': '270'
+    'x-ms-blob-type': 'REDACTED'
+    'If-None-Match': '*'
+    'x-ms-version': 'REDACTED'
+    'Content-Type': 'application/octet-stream'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-blob/12.27.1 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': 'afa6fdfe-9f7e-11f1-bbe8-02aad2fd31d0'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 201
+Response headers:
+    'Content-Length': '0'
+    'Content-MD5': 'REDACTED'
+    'Last-Modified': 'Mon, 24 Aug 2026 05:43:09 GMT'
+    'ETag': '"0x8DF01A2941A8FF0"'
+    'Server': 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-id': '845a24f8-001e-001d-348b-33ffb2000000'
+    'x-ms-client-request-id': 'afa6fdfe-9f7e-11f1-bbe8-02aad2fd31d0'
+    'x-ms-version': 'REDACTED'
+    'x-ms-content-crc64': 'REDACTED'
+    'x-ms-request-server-encrypted': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:43:08 GMT'
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://eastus.api.azureml.ms/history/v1.0/subscriptions/a0e7e508-3870-4e84-b3d3-d1a183ee5089/resourceGroups/marchcohortbpaliwal/providers/Microsoft.MachineLearningServices/workspaces/bspproj3ml/experiments/a4d5040c-45ff-48a5-bb11-0c87edef00b5/runs/8ea2ad89-1c0e-4bdf-b179-d28ab67e7e53/artifacts/batch/metadata'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Accept': 'application/json'
+    'Content-Length': '59'
+    'x-ms-client-request-id': 'afee2602-9f7e-11f1-bbe8-02aad2fd31d0'
+    'User-Agent': 'azsdk-python-mgmt-machinelearningservices/0.1.0 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'Authorization': 'REDACTED'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 200
+Response headers:
+    'Date': 'Mon, 24 Aug 2026 05:43:09 GMT'
+    'Content-Type': 'application/json; charset=utf-8'
+    'Transfer-Encoding': 'chunked'
+    'Connection': 'keep-alive'
+    'Vary': 'REDACTED'
+    'Request-Context': 'REDACTED'
+    'x-ms-response-type': 'REDACTED'
+    'mise-correlation-id': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'x-request-time': 'REDACTED'
+    'Content-Encoding': 'REDACTED'
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'https://bspprj3storage.blob.core.windows.net/azureml/ExperimentRun/dcid.8ea2ad89-1c0e-4bdf-b179-d28ab67e7e53/evaluation/evaluation_detailed.csv?sv=REDACTED&sr=REDACTED&sig=REDACTED&st=REDACTED&se=REDACTED&sp=REDACTED'
+Request method: 'PUT'
+Request headers:
+    'Content-Length': '79275'
+    'x-ms-blob-type': 'REDACTED'
+    'If-None-Match': '*'
+    'x-ms-version': 'REDACTED'
+    'Content-Type': 'application/octet-stream'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-blob/12.27.1 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': 'b033178a-9f7e-11f1-bbe8-02aad2fd31d0'
+A body is sent with the request
+INFO:azure.core.pipeline.policies.http_logging_policy:Response status: 201
+Response headers:
+    'Content-Length': '0'
+    'Content-MD5': 'REDACTED'
+    'Last-Modified': 'Mon, 24 Aug 2026 05:43:10 GMT'
+    'ETag': '"0x8DF01A294C8CFB2"'
+    'Server': 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-id': '2dad33cc-501e-0086-268b-33728a000000'
+    'x-ms-client-request-id': 'b033178a-9f7e-11f1-bbe8-02aad2fd31d0'
+    'x-ms-version': 'REDACTED'
+    'x-ms-content-crc64': 'REDACTED'
+    'x-ms-request-server-encrypted': 'REDACTED'
+    'Date': 'Mon, 24 Aug 2026 05:43:10 GMT'
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:evaluation:MLflow RAGAS run completed: 8ea2ad89-1c0e-4bdf-b179-d28ab67e7e53
+INFO:evaluation:MLflow experiment: travel-search-rag
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+🏃 View run ragas_evaluation at: https://eastus.api.azureml.ms/mlflow/v2.0/subscriptions/a0e7e508-3870-4e84-b3d3-d1a183ee5089/resourceGroups/marchcohortbpaliwal/providers/Microsoft.MachineLearningServices/workspaces/bspproj3ml/#/experiments/a4d5040c-45ff-48a5-bb11-0c87edef00b5/runs/8ea2ad89-1c0e-4bdf-b179-d28ab67e7e53
+🧪 View experiment at: https://eastus.api.azureml.ms/mlflow/v2.0/subscriptions/a0e7e508-3870-4e84-b3d3-d1a183ee5089/resourceGroups/marchcohortbpaliwal/providers/Microsoft.MachineLearningServices/workspaces/bspproj3ml/#/experiments/a4d5040c-45ff-48a5-bb11-0c87edef00b5
+INFO:azure.core.pipeline.policies.http_logging_policy:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.14.7 (Linux-6.12.76-linuxkit-aarch64-with-glibc2.41)'
+No body was attached to the request
+INFO:azure.identity._credentials.chained:ChainedTokenCredential acquired a token from AzureCliCredential
+INFO:evaluation:✅ EVALUATION PASSED
+INFO:evaluation:Faithfulness 0.8089 >= 0.70
+INFO:evaluation:Answer Relevancy 0.7739 >= 0.70

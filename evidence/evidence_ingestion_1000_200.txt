@@ -1,0 +1,80 @@
+DEBUG: Running in Docker/container environment. Using environment variables; .env is not required.
+
+🚀 Starting Travel Document Ingestion
+======================================================================
+☁️  Azure Blob Storage enabled: container='project3'
+
+🗑️  Recreating Azure AI Search index: bspproject3index
+   ✅ Deleted existing index: bspproject3index
+   ✅ Index cleanup complete
+DEBUG: MLflow configured successfully.
+DEBUG: Tracking URI: azureml://eastus.api.azureml.ms/mlflow/v1.0/subscriptions/a0e7e508-3870-4e84-b3d3-d1a183ee5089/resourceGroups/marchcohortbpaliwal/providers/Microsoft.MachineLearningServices/workspaces/bspproj3ml
+DEBUG: Azure Content Safety client initialized successfully.
+DEBUG: Initializing AzureChatOpenAI with endpoint https://bsp-project3-resource.openai.azure.com and deployment gpt-5.4-mini
+DEBUG: AzureChatOpenAI initialized successfully.
+DEBUG: Initializing AzureOpenAIEmbeddings with endpoint https://bsp-project3-resource.openai.azure.com and deployment text-embedding-3-small
+DEBUG: AzureOpenAIEmbeddings initialized successfully.
+DEBUG: Initializing vector store...
+DEBUG: Configured Azure Search endpoint: https://bspproject3.search.windows.net
+DEBUG: Configured Azure Search index: bspproject3index
+DEBUG: Initializing AzureSearch vector store...
+DEBUG: AzureSearch vector store initialized successfully.
+DEBUG: Vector store initialized successfully.
+
+📂 Loading travel knowledge base...
+   Source: Azure Blob Storage
+============================================================
+☁️  Loading PDFs from Azure Blob container 'project3'...
+Found 9 PDF files in Azure Blob Storage
+  Downloading: U.S. Department of Transportation - Air Consumer Privacy.pdf
+  ✓ Loaded: U.S. Department of Transportation - Air Consumer Privacy.pdf (3 pages)
+  Downloading: U.S. Department of Transportation - Aircraft Dissinection.pdf
+  ✓ Loaded: U.S. Department of Transportation - Aircraft Dissinection.pdf (5 pages)
+  Downloading: U.S. Department of Transportation - Aviation Industry Bankruptcy and Service Cessation.pdf
+  ✓ Loaded: U.S. Department of Transportation - Aviation Industry Bankruptcy and Service Cessation.pdf (5 pages)
+  Downloading: U.S. Department of Transportation - Implementation of the Consumer Credit Protection Act With Respect to Air Carriers and Foreign Air Carriers.pdf
+  ✓ Loaded: U.S. Department of Transportation - Implementation of the Consumer Credit Protection Act With Respect to Air Carriers and Foreign Air Carriers.pdf (2 pages)
+  Downloading: U.S. Department of Transportation - Refunds and Other Consumer Protections.pdf
+  ✓ Loaded: U.S. Department of Transportation - Refunds and Other Consumer Protections.pdf (80 pages)
+  Downloading: U.S. Department of Transportation - Refunds for Airline Fare and Ancillary Service Fees.pdf
+  ✓ Loaded: U.S. Department of Transportation - Refunds for Airline Fare and Ancillary Service Fees.pdf (9 pages)
+  Downloading: ai-schedule-change-policy-updated.pdf
+  ✓ Loaded: ai-schedule-change-policy-updated.pdf (1 pages)
+  Downloading: air-india-coc.pdf
+  ✓ Loaded: air-india-coc.pdf (28 pages)
+  Downloading: air-india-general-booking-policies-oct2025.pdf
+  ✓ Loaded: air-india-general-booking-policies-oct2025.pdf (19 pages)
+☁️  Looking for CSV files in Azure Blob container 'project3'...
+Found 0 CSV files in Azure Blob Storage
+============================================================
+✅ Total documents loaded: 152
+
+✂️  Splitting 152 documents into chunks...
+✅ Created 1018 chunks
+   Average chunk size: 919 chars
+
+📊 Ingestion Summary:
+   Total chunks to index: 1018
+
+📥 Indexing documents to Azure AI Search...
+Indexing:   0%|          | 0/21 [00:00<?, ?it/s]Indexing:   5%|▍         | 1/21 [00:03<01:03,  3.17s/it]Indexing:  10%|▉         | 2/21 [00:04<00:40,  2.15s/it]Indexing:  14%|█▍        | 3/21 [00:06<00:33,  1.88s/it]Indexing:  19%|█▉        | 4/21 [00:08<00:32,  1.90s/it]Indexing:  24%|██▍       | 5/21 [00:10<00:32,  2.02s/it]Indexing:  29%|██▊       | 6/21 [00:12<00:28,  1.92s/it]Indexing:  33%|███▎      | 7/21 [00:14<00:27,  1.99s/it]Indexing:  38%|███▊      | 8/21 [00:15<00:24,  1.88s/it]Indexing:  43%|████▎     | 9/21 [00:17<00:20,  1.72s/it]Indexing:  48%|████▊     | 10/21 [00:18<00:17,  1.55s/it]Indexing:  52%|█████▏    | 11/21 [00:20<00:15,  1.58s/it]Indexing:  57%|█████▋    | 12/21 [00:21<00:14,  1.62s/it]Indexing:  62%|██████▏   | 13/21 [00:22<00:11,  1.49s/it]Indexing:  67%|██████▋   | 14/21 [00:24<00:10,  1.44s/it]Indexing:  71%|███████▏  | 15/21 [00:26<00:10,  1.71s/it]Indexing:  76%|███████▌  | 16/21 [00:27<00:07,  1.55s/it]Indexing:  81%|████████  | 17/21 [00:29<00:05,  1.49s/it]Indexing:  86%|████████▌ | 18/21 [00:30<00:04,  1.50s/it]Indexing:  90%|█████████ | 19/21 [00:32<00:03,  1.65s/it]Indexing:  95%|█████████▌| 20/21 [00:34<00:01,  1.80s/it]Indexing: 100%|██████████| 21/21 [00:36<00:00,  1.64s/it]Indexing: 100%|██████████| 21/21 [00:36<00:00,  1.72s/it]
+
+✅ Ingestion Complete!
+   Successfully indexed: 1018 chunks
+
+🔍 Verifying index...
+DEBUG: Text Query: What are the baggage allowance rules for international flights?
+⚠️ MLflow disabled for search_by_text: Run with UUID 0af248f2-de42-426b-8e90-264046681f7f is already active. To start a new run, first end the current run with mlflow.end_run(). To start a nested run, call start_run with nested=True
+DEBUG: Performing similarity search with k=5
+DEBUG: Similarity search returned 5 documents.
+DEBUG: Retrieval latency: 2.669s
+DEBUG: Unique source documents: 2
+✅ Index verification successful!
+   Test query: 'What are the baggage allowance rules for international flights?'
+   Retrieved: 5 documents
+🏃 View run document_ingestion at: https://eastus.api.azureml.ms/mlflow/v2.0/subscriptions/a0e7e508-3870-4e84-b3d3-d1a183ee5089/resourceGroups/marchcohortbpaliwal/providers/Microsoft.MachineLearningServices/workspaces/bspproj3ml/#/experiments/a4d5040c-45ff-48a5-bb11-0c87edef00b5/runs/0af248f2-de42-426b-8e90-264046681f7f
+🧪 View experiment at: https://eastus.api.azureml.ms/mlflow/v2.0/subscriptions/a0e7e508-3870-4e84-b3d3-d1a183ee5089/resourceGroups/marchcohortbpaliwal/providers/Microsoft.MachineLearningServices/workspaces/bspproj3ml/#/experiments/a4d5040c-45ff-48a5-bb11-0c87edef00b5
+
+======================================================================
+🎉 Ingestion pipeline completed!
+
