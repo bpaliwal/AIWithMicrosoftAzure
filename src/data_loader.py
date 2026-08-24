@@ -84,8 +84,8 @@ class TravelDataLoader:
         # HINT: Initialize text splitter with chunk_size=1000,
         # chunk_overlap=200
         self.text_splitter = RecursiveCharacterTextSplitter(
-            chunk_size=1000,
-            chunk_overlap=200,
+            chunk_size=int(os.getenv("CHUNK_SIZE","1000")),
+            chunk_overlap=int(os.getenv("CHUNK_OVERLAP","200")),
             separators=["\n\n", "\n", " ", ""]
         )
 

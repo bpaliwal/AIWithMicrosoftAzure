@@ -37,6 +37,7 @@ from typing import Dict, List, Tuple
 
 import pandas as pd
 import mlflow
+import os
 
 
 # ---------------------------------------------------------------------------
@@ -497,7 +498,7 @@ class TravelChatbotEvaluator:
                 # -------------------------------------------------------
                 docs, _ = self.engine.search_by_text(
                     question,
-                    k=5,
+                    k=int(os.getenv("RETRIEVAL_K", "5")),
                 )
 
                 # -------------------------------------------------------

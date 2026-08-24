@@ -363,7 +363,7 @@ if should_search and engine and query_text:
             results, processed_query, generated_response = (
                 engine.answer_query(
                     query_text,
-                    k=5,
+                    k=int(os.getenv("RETRIEVAL_K", "5")),
                 )
             )
 

@@ -13,13 +13,14 @@ from tqdm import tqdm
 
 from src.search_engine import TravelSearchEngine
 from src.data_loader import TravelDataLoader
-from config import Config
+from src.config import Config
 
 from azure.core.credentials import AzureKeyCredential
 from azure.core.exceptions import ResourceNotFoundError
 from azure.search.documents.indexes import SearchIndexClient
 
 import mlflow
+import os
 
 
 def recreate_search_index():
@@ -178,7 +179,7 @@ def ingest_travel_documents():
 
         results, _ = engine.search_by_text(
             test_query,
-            k=5
+            k=int(os.getenv("RETRIEVAL_K", "5"))
         )
 
         if results:
