@@ -13,9 +13,48 @@ from tqdm import tqdm
 
 from src.search_engine import TravelSearchEngine
 from src.data_loader import TravelDataLoader
-from src.config import Config
+from config import Config
+
+from azure.core.credentials import AzureKeyCredential
+from azure.core.exceptions import ResourceNotFoundError
+from azure.search.documents.indexes import SearchIndexClient
 
 import mlflow
+
+
+def recreate_search_index():
+    """
+    Delete the existing Azure AI Search index, if it exists.
+
+    The LangChain AzureSearch vector store will create the index again
+    when it is initialized. This makes ingestion idempotent and ensures
+    every ingestion starts with a clean index.
+    """
+    endpoint = Config.AZURE_SEARCH_ENDPOINT
+    key = Config.AZURE_SEARCH_KEY
+    index_name = Config.AZURE_SEARCH_INDEX_NAME
+
+    if not endpoint or not key or not index_name:
+        raise ValueError(
+            "AZURE_SEARCH_ENDPOINT, AZURE_SEARCH_KEY, "
+            "and AZURE_SEARCH_INDEX_NAME must be configured."
+        )
+
+    print(f"\n🗑️  Recreating Azure AI Search index: {index_name}")
+
+    client = SearchIndexClient(
+        endpoint=endpoint,
+        credential=AzureKeyCredential(key),
+    )
+
+    try:
+        client.delete_index(index_name)
+        print(f"   ✅ Deleted existing index: {index_name}")
+
+    except ResourceNotFoundError:
+        print(f"   ℹ️  Index does not exist yet: {index_name}")
+
+    print("   ✅ Index cleanup complete")
 
 
 def ingest_travel_documents():
@@ -36,7 +75,11 @@ def ingest_travel_documents():
     loader = TravelDataLoader()
 
     try:
+        # Always start with a clean Azure AI Search index.
+        recreate_search_index()
+
         engine = TravelSearchEngine()
+
     except Exception as e:
         print(f"❌ Failed to initialize search engine: {e}")
         return
@@ -73,8 +116,14 @@ def ingest_travel_documents():
 
         if mlflow_active:
             mlflow.log_param("total_chunks", len(chunks))
-            mlflow.log_param("chunk_size", loader.text_splitter._chunk_size)
-            mlflow.log_param("chunk_overlap", loader.text_splitter._chunk_overlap)
+            mlflow.log_param(
+                "chunk_size",
+                loader.text_splitter._chunk_size
+            )
+            mlflow.log_param(
+                "chunk_overlap",
+                loader.text_splitter._chunk_overlap
+            )
 
         # ====================
         # Batch Ingestion
@@ -101,11 +150,15 @@ def ingest_travel_documents():
                 time.sleep(0.1)
 
             except Exception as e:
-                print(f"\n❌ Error indexing batch {i // batch_size + 1}: {e}")
+                print(
+                    f"\n❌ Error indexing batch "
+                    f"{i // batch_size + 1}: {e}"
+                )
                 failed_count += len(batch)
 
         print(f"\n✅ Ingestion Complete!")
         print(f"   Successfully indexed: {ingested_count} chunks")
+
         if failed_count > 0:
             print(f"   Failed: {failed_count} chunks")
 
@@ -117,8 +170,16 @@ def ingest_travel_documents():
         # Verification
         # ====================
         print("\n🔍 Verifying index...")
-        test_query = "What are the baggage allowance rules for international flights?"
-        results, _ = engine.search_by_text(test_query, k=5)
+
+        test_query = (
+            "What are the baggage allowance rules "
+            "for international flights?"
+        )
+
+        results, _ = engine.search_by_text(
+            test_query,
+            k=5
+        )
 
         if results:
             print("✅ Index verification successful!")
